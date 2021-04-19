@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Работа</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta name="keywords" content="Pie Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+<!-- Owl Stylesheets -->
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+ <script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+				});
+			});
+		</script>
+<!--Animation-->
+<script src="js/wow.min.js"></script>
+<link href="css/animate.css" rel='stylesheet' type='text/css' />
+<script>
+	new WOW().init();
+</script>
+</head>
+<body>
+
+	<!-- header-section-starts -->
+	<div class="header" id="home">
+		<div class="container">
+			<div class="logo wow fadeInRight" data-wow-delay="0.4s">
+				<a href="#"><img src="images/logo.png" alt="" /></a>
+			</div>
+			<span class="menu"></span>
+			<div class="top-menu wow fadeInLeft" data-wow-delay="0.4s">
+				<ul>
+					<li><a class="active scroll hvr-shutter-out-horizontal" href="#home">Дом</a></li>
+					<li><a class="scroll hvr-shutter-out-horizontal" href="#service">Услуги</a></li>
+					<li><a class="scroll hvr-shutter-out-horizontal" href="#about">О нас</a></li>
+					<!-- <li><a class="scroll hvr-shutter-out-horizontal" href="#pricing">Pricing Table</a></li> -->
+					<li><a class="scroll hvr-shutter-out-horizontal" href="#work">Как это работает</a></li>
+					<li><a class="scroll hvr-shutter-out-horizontal" href="#clients">Отзовы</a></li>
+					<li><a class="scroll hvr-shutter-out-horizontal" href="#contact">Котнакты</a></li>
+				</ul>
+			</div>
+				<!-- script for menu -->
+				<script>
+				$( "span.menu" ).click(function() {
+				  $( ".top-menu" ).slideToggle( "slow", function() {
+				    // Animation complete.
+				  });
+				});
+			</script>
+			<!-- script for menu -->
+
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="banner wow fadeInUp" data-wow-delay="0.4s">
+		<div class="container">
+			<div class="banner-info text-center">
+				<h2 class="wow bounceInLeft" data-wow-delay="0.4s">Организация потока клиентов для бизнеса </h2>
+				<p class="wow bounceInLeft" data-wow-delay="0.4s">Эффективный интернет-маркетинг, мы работаем, чтобы повысить Ваши продажи!</p>
+				<div class="details wow fadeInLeft" data-wow-delay="0.4s">
+				
+				
+				
+					<!-- <form id="form"> -->
+                    <form action="send.php" method="post">
+						<li>
+							<input type="text" name="name" class="text" value="ФИО" required="required" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Full Name';}">
+							<a class="name" href="#"></a>
+						</li>
+						<li>
+							<input type="text" name="email" class="text" required="required" value="Электронная почта" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}">
+							<a class="mail" href="#"></a>
+						</li>
+						<li>
+							<input type="text" name="phone" class="text" required="required" value="Сотовый телефон" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone Number';}">
+							<a class="num" href="#"></a>
+						</li>
+							<input type="submit" value="Привлечь клиентов!">
+					</form>
+					<script type="text/javascript">
+$(document).ready(function(){
+    $("#form").submit(function() { //устанавливаем событие отправки для формы с id=form
+            var form_data = $(this).serialize(); //собераем все данные из формы
+            $.ajax({
+            type: "POST", //Метод отправки
+            url: "send.php", //путь до php фаила отправителя
+            data: form_data,
+            success: function() {
+                   //код в этом блоке выполняется при успешной отправке сообщения
+                   alert("Ваше сообщение отпрвлено!");
+            });
+    });
+});    
+</script>
+					
+					
+					
+				</div>
+			</div>
+			<div class="header-bottom">
+		<div class="right-grid-1">
+					<section class="slider">
+							<div class="flexslider">
+							  <ul class="slides">
+								<li>
+									<img src="images/pic1.jpg" class="img-responsive" alt="" />
+									</li>
+									<li>
+									<img src="images/pic2.jpg" class="img-responsive" alt="" />
+									</li>
+									<li>
+									<img src="images/pic3.jpg" class="img-responsive" alt="" />
+									</li>
+							  </ul>
+							</div>
+						  </section>
+						  <!-- FlexSlider -->
+						  <script defer src="js/jquery.flexslider.js"></script>
+						  <script type="text/javascript">
+							$(function(){
+							  SyntaxHighlighter.all();
+							});
+							$(window).load(function(){
+							  $('.flexslider').flexslider({
+								animation: "slide",
+								start: function(slider){
+								  $('body').removeClass('loading');
+								}
+							  });
+							});
+						  </script>
+                    </div>	
+				</div>					
+		</div>
+		</div>
+		<div class="content">
+			<div class="service-section" id="service">
+				<div class="container">
+					<div class="service-section-head text-center wow fadeInRight" data-wow-delay="0.4s">
+						<h3>Ключевые услуги</h3>
+						<!-- <p>Текс</p> -->
+					</div>
+					<div class="service-section-grids">
+						<div class="col-md-6 service-grid">
+							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
+								<div class="icon">
+									<i class="s1"></i>
+								</div>
+								<div class="icon-text">
+									<h4>Создание сайтов</h4>
+									<p>Разработка корпоративных порталов, промо-сайтов и сайтов-визиток для вашего бизнеса.</p>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
+								<div class="icon">
+									<i class="s2"></i>
+								</div>
+								<div class="icon-text">
+									<h4>Продвижение в социальных сетях</h4>
+									<p>Проводим анализ и подбираем оптимальные инструменты для продвижения бизнеса в интернете.</p>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
+								<div class="icon">
+									<i class="s3"></i>
+								</div>
+								<div class="icon-text">
+									<h4>Разработка Landing page</h4>
+									<p>Создание продающих сайтов, основная цель которых – получение контактов наибольшего числа посетителей.</p>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="col-md-6 service-grid">
+							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
+								<div class="icon">
+									<i class="s4"></i>
+								</div>
+								<div class="icon-text">
+									<h4>Комплексное продвижение</h4>
+									<p>Текст</p>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
+								<div class="icon">
+									<i class="s5"></i>
+								</div>
+								<div class="icon-text">
+									<h4>Настройка яндекс директа</h4>
+									<p>Текст</p>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
+								<div class="icon">
+									<i class="s6"></i>
+								</div>
+								<div class="icon-text">
+									<h4>Оптимизация сайта</h4>
+									<p>Техническая и контентная оптимизация сайтов, нацеленная на повышение релевантности сайта.</p>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				
+<div class="hidentel">
+<!-- спойлер начало -->
+<div class="spoil">
+<div class="smallfont"><input type="button" value="ПОСМОТРЕТЬ ВСЕ УСЛУГИ"; class="input-button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Свернуть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Спойлер'; }"/>
+</div><div class="alt2"><div style="display: none; text-align:center;">     
+<div>
+<!-- спойлер начало -->
+<div class="spoil">
+<div class="smallfont"><input type="button" value="ИНТЕРНЕТ-МАРКЕТИНГ"; class="input-button1" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Свернуть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Спойлер'; }"/>
+</div><div class="alt2"><div style="display: none; text-align:center;">           
+<table width="75%" align="centr"   class="input-button2 service-section-grid">
+   <tr>
+    <td width="35%">
+	<h4>Продвижение в поисковых системах (SEO)</h4>
+	<ul class="service-section-grid">
+								<li>Продвижение по позициям (в ТОП-10)</li>
+								<li>Продвижение по трафику</li>
+								<li>Продвижение по лидам</li>
+								<li>Оптимизация сайта</li>
+								<li>Анализ спроса в поисковых системах</li>
+								<li>Анализ конкурентов</li>
+								<li>Анализ ссылочной массы</li>
+								<li>Вывод из-под фильтров Яндекса и Google</li>
+								<li>Аудит оптимизации</li>
+								<li>Продвижение молодых сайтов</li>
+							</ul>
+	<h4>Контекстная реклама</h4>
+	<ul>
+								<li>Яндекс.Директ, Google Adwords, Бегун</li>
+								<li>Анализ конкурентов</li>
+								<li>Аудит рекламных кампаний</li>
+								<li>Повышение эффективности</li>
+								<li>Автоматизация контекстной рекламы</li>
+							</ul>
+	<h4>E-mail-маркетинг</h4>
+	<ul>
+								<li>Разработка макетов писем</li>
+								<li>Анализ целевой аудитории</li>
+								<li>Сопровождение рассылок</li>
+								<li>Анализ результатов</li>
+								<li>Стратегия рассылок</li>
+							</ul>
+	<h4>Прайс-площадки</h4>
+	<ul>
+								<li>Яндекс.Маркет</li>
+								<li>Торг@mail.ru</li>
+							</ul>
+	</td>
+    <td width="35%" valign="top">
+	<h4>Комплексный интернет-маркетинг</h4>
+	<h4>Контент-маркетинг</h4>
+	<ul>
+								<li>Написание и размещение статей</li>
+								<li>Работа с блоггерами</li>
+								<li>Анализ аудитории</li>
+								<li>Сценарии целевых действий</li>
+								<li>Концепция продвижения</li>
+								<li>Медиапланирование</li>
+							</ul>
+	<h4>Таргетированная реклама</h4>
+	<ul>
+								<li>Сегментация аудитории</li>
+								<li>Управление бюджетом</li>
+								<li>Поддержка и сопровождение</li>
+							</ul>
+	<h4>Медийная реклама</h4>
+	<ul>
+								<li>Медийно-контекстная реклама в ПС</li>
+								<li>RTB Яндекс/Google</li>
+								<li>Баннерная реклама</li>
+								<li>Медийная реклама на тематических площадках</li>
+							</ul>
+	<h4>Веб-аналитика</h4>
+	<h4Ретаргетинг</h4>
+	<ul>
+								<li>Ретаргетинг для РСЯ</li>
+								<li>Ретаргетинг в КМС</li>
+								<li>Ретаргетинг в соцмедиа</li>
+							</ul>
+	</td>
+   </tr>
+  </table>
+</div>
+</div>
+</div>         
+<!-- спойлер конец -->
+</div>  
+<div>
+<!-- спойлер начало -->
+<div class="spoil">
+<div class="smallfont"><input type="button" value="ВЕБ-РАЗРАБОТКА"; class="input-button1" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Свернуть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Спойлер'; }"/>
+</div><div class="alt2"><div style="display: none; text-align:center;">           
+<table  width="75%" align="centr"   class="input-button2 service-section-grid">
+  <tr>
+  <td>
+	<div><h4>Создание сайтов</h4></div>
+							<ul class="service-section-grid">
+								<li>Корпоративные сайты</li>
+								<li>Промо-сайты</li>
+								<li>Сайты-визитки</li>
+								<li>Информационные порталы</li>
+								<li>Сайт услуг</li>
+								<li>Сайт-каталог</li>
+							</ul>
+	<div><h4>Разработка интернет-магазинов</h4></div>
+  </td>
+  <td valign="top">
+  <div><h4>Landing Page</h4></div>
+  <div><h4>Мобильные версии сайта</h4></div>
+  <div><h4>Адаптивные сайты</h4></div>
+  <div><h4>Проектирование</h4></div>
+  <div><h4>Тестирование</h4></div>
+  </td>
+  </tr>
+  </table>
+</div>
+</div>
+</div>         
+<!-- спойлер конец -->
+</div> 
+<div>
+<!-- спойлер начало -->
+<div class="spoil">
+<div class="smallfont"><input type="button" value="АНАЛИТИКА"; class="input-button1" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Свернуть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Спойлер'; }"/>
+</div><div class="alt2"><div style="display: none; text-align:center;">           
+<table width="75%" align="centr"   class="input-button2 service-section-grid">
+  <tr>
+  <td>
+							<ul class="service-section-grid">
+								<li>Аудит сайтов</li>
+								<li>Технический аудит</li>
+								<li>Анализ юзабилити сайта</li>
+								<li>Разработка технического задания</li>
+								<li>Анализ конкурентной среды</li>
+								<li>Дизайн-аудит</li>
+								<li>Веб-аналитика</li>
+								<li>Исследование аудитории</li>
+							</ul>
+  </td>
+  <td valign="top">
+  <ul class="service-section-grid">
+								<li>Real-time анализ</li>
+								<li>Анализ рекламных кампаний</li>
+								<li>Маркетинговый аудит</li>
+								<li>SEO-аудит (поисковый аудит)</li>
+								<li>Пост-клик анализ</li>
+								<li>Тестирование конверсии</li>
+								<li>Отслеживание звонок (Calltracking)</li>
+							</ul>
+  </td>
+  </tr>
+  </table>
+</div>
+</div>
+</div>         
+<!-- спойлер конец -->
+</div> 
+<div>
+<!-- спойлер начало -->
+<div class="spoil">
+<div class="smallfont"><input type="button" value="ДИЗАЙН И БРЕНДИНГ"; class="input-button1" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Свернуть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Спойлер'; }"/>
+</div><div class="alt2"><div style="display: none; text-align:center;">           
+<table width="75%" align="centr"   class="input-button2 service-section-grid">
+  <tr>
+  <td>
+  <ul class="service-section-grid">
+								<li>Веб-дизайн</li>
+								<li>Разработка фирменного стиля</li>
+								<li>Разработка логотипов</li>
+								<li>Оформление печатной продукции</li>
+								<li>Графический дизайн</li>
+								<li>Проектирование интерфейсов</li>
+								<li>Дизайн упаковки</li>
+								<li>Рекламный принт</li>
+								<li>Печатная продукция</li>
+								<li>Инфографика</li>
+								<li>Концепция бренда</li>
+								<li>Позиционирование</li>
+								<li>Философия бренда</li>
+							</ul>
+  </td>
+  <td valign="top">
+  <ul class="service-section-grid">
+								<li>Нейминг</li>
+								<li>Слоган</li>
+								<li>Брендбук</li>
+								<li>Маркетинг-кит</li>
+								<li>Презентации</li>
+								<li>Баннеры</li>
+								<li>Айдентика (лого, фирстиль, шрифты)</li>
+								<li>Создание персонажей</li>
+								<li>2D/3D иллюстрации и анимация</li>
+								<li>Сувенирная продукция</li>
+								<li>Редизайн</li>
+								<li>Дизайн полиграфической продукции</li>
+							</ul>
+  </td>
+  </tr>
+  </table>
+</div>
+</div>
+</div>         
+<!-- спойлер конец -->
+</div> 
+<div>
+<!-- спойлер начало -->
+<div class="spoil">
+<div class="smallfont"><input type="button" value="IT-ПОДДЕРЖКА"; class="input-button1" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Свернуть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Спойлер'; }"/>
+</div><div class="alt2"><div style="display: none; text-align:center;">           
+<table width="75%" align="centr"   class="input-button2 service-section-grid">
+  <tr>
+  <td>
+  <ul class="service-section-grid">
+								<li>Техническая поддержка</li>
+								<li>Наполнение контентом</li>
+								<li>Настройка и оптимизация CMS</li>
+								<li>Хостинг</li>
+								<li>Домены</li>
+							</ul>
+  </td>
+  <td>
+  <ul class="service-section-grid">
+								<li>Онлайн-консультанты</li>
+								<li>Копирайтинг</li>
+								<li>Устранение ошибок и неполадок</li>
+								<li>Антивирусная защита</li>
+								<li>Резервное копирование</li>
+							</ul>
+  </td>
+  </tr>
+  </table>
+</div>
+</div>
+</div>         
+<!-- спойлер конец -->
+</div> 
+<div>
+<!-- спойлер начало -->
+<div class="spoil">
+<div class="smallfont"><input type="button" value="КОНСАЛТИНГ"; class="input-button1" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Свернуть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Спойлер'; }"/>
+</div><div class="alt2"><div style="display: none; text-align:center;">           
+ <table width="75%" align="centr"   class="input-button2 service-section-grid">
+  <tr>
+  <td>
+  <ul class="service-section-grid">
+								<li>Консультации по созданию сайта</li>
+								<li>Консультации по разработке интернет-магазина</li>
+							</ul>
+  </td>
+  <td>
+  <ul class="service-section-grid">
+								<li>Консультации по продвижению сайта</li>
+								<li>Консультацию по созданию посадочных страниц</li>
+							</ul>
+  </td>
+  </tr>
+  </table>
+</div>
+</div>
+</div>         
+<!-- спойлер конец -->
+</div> 
+<div>
+<!-- спойлер начало -->
+<div class="spoil">
+<div class="smallfont"><input type="button" value="ОБУЧЕНИЕ"; class="input-button1" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Свернуть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Спойлер'; }"/>
+</div><div class="alt2"><div style="display: none; text-align:center;">           
+<table width="75%" align="centr"   class="input-button2 service-section-grid">
+  <tr>
+  <td>
+  <ul class="service-section-grid">
+								<li>Семинары по продвижению сайтов</li>
+								<li>Семинары по Google Adwords</li>
+								<li>Семинары по Яндекс.Директ</li>
+								<li>Семинары по Яндекс.Метрике</li>
+								<li>Семинары по Google Analytics</li>
+							</ul>
+  </td>
+  <td>
+  <ul class="service-section-grid">
+								<li>Корпоративное обучение</li>
+								<li>Семинары по созданию сайтов</li>
+								<li>Семинары по созданию лендингов</li>
+								<li>Корпоративное обучение</li>
+								<li>Обучение email-маркетингу</li>
+							</ul>
+  </td>
+  </tr>
+  </table>
+</div>
+</div>
+</div>         
+<!-- спойлер конец -->
+</div>     
+</div>
+</div>
+</div>         
+<!-- спойлер конец -->
+			</div>
+			<div class="about-section" id="about">
+            <div  class="hidentel">
+				<div class="col-md-6 about_left wow bounceInLeft">
+					<img src="images/about_pic.jpg" alt="" />
+				</div>
+				<div class="col-md-6 about_right wow bounceInRight">
+					<h3>Кто мы такие?</h3>
+					<p>Молодая команда амбициозных специалистов, которая ставит перед собой высокие цели. "Qallo" – Не большое маркетинговое агенство с огромными возможностями. Мы постоянно двигаемся вперед, поднимая планку своих достижений каждый день! 
+					</p>
+
+					<!-- <a href="#">Больше</a>  
+
+<div><a href="#open2" onclick="show('hidden_2',200,3)">Больше</a></div> 
+<div id=hidden_2 style="display:none;height:200px;width:350px;background-color:#ffc155;color-text:#ffffff">
+<br>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+</div>
+ <script language="JavaScript" type="text/javascript">
+ /*<![CDATA[*/
+ var s=[],s_timer=[];
+ function show(id,h,spd)
+ { s[id]= s[id]==spd? -spd : spd;
+ s_timer[id]=setTimeout(function() {
+ var obj=document.getElementById(id);
+ if(obj.offsetHeight+s[id]>=h){obj.style.height=h+"px";obj.style.overflow="auto";}
+ else if(obj.offsetHeight+s[id]<=0){obj.style.height=0+"px";obj.style.display="none";}
+ else {obj.style.height=(obj.offsetHeight+s[id])+"px";
+ obj.style.overflow="hidden";
+ obj.style.display="block";
+ setTimeout(arguments.callee, 10);
+ }
+ }, 10);
+ }
+ /*]]>*/
+ </script> 
+-->
+
+<script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+<script>
+    $(document).ready(function(){
+        //Скрыть PopUp при загрузке страницы    
+        PopUpHide();
+    });
+    //Функция отображения PopUp
+    function PopUpShow(){
+        $("#popup1").show();
+    }
+    //Функция скрытия PopUp
+    function PopUpHide(){
+        $("#popup1").hide();
+    }
+</script>
+
+<div class="b-container">
+    <a href="javascript:PopUpShow()" class="b-container">Больше</a>
+</div>
+
+
+
+
+
+				</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<!-- <div class="price-section" id="pricing">
+				<div class="container">
+					<div class="price-section-head text-center wow fadeInLeft" data-wow-delay="0.4s">
+						<h3>Choose your price</h3>
+						<p>Lorem Ipsum is simply dummy text of the printing typesetting.</p>
+					</div>
+					<div class="price-section-grids">
+						<div class="col-md-4 price-value text-center wow fadeInLeft" data-wow-delay="0.4s">
+							<div class="price-section-grid">
+								<h5>Basic plan</h5>
+								<h3><span>$</span>22</h3>
+								<p>per month</p>
+								<ul>
+									<li>1 Account</li>
+									<li>8 hour support</li>
+									<li>Custom Cloud Services</li>								
+								</ul>
+								<a href="#">Get Started</a>
+							</div>
+						</div>
+						<div class="col-md-4 price-value text-center wow fadeInUp" data-wow-delay="0.6s">
+							<div class="price-section-grid">
+								<h5>Premium plan</h5>
+								<h3><span>$</span>42</h3>
+								<p>per month</p>
+								<ul>
+									<li>2 Account</li>
+									<li>100MB Storage</li>
+									<li>Custom Cloud Services</li>								
+								</ul>
+								<a href="#">Get Started</a>
+							</div>
+						</div>
+						<div class="col-md-4 price-value text-center wow fadeInRight" data-wow-delay="0.4s">
+							<div class="price-section-grid">
+								<h5>Gold plan</h5>
+								<h3><span>$</span>62</h3>
+								<p>per month</p>
+								<ul>
+									<li>8 Account</li>
+									<li>24 hour support</li>
+									<li>Custom Cloud Services</li>								
+								</ul>
+								<a href="#">Get Started</a>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div> -->
+			<div class="work-section" id="work">
+				<div class="container">
+					<div class="work-section-head text-center wow fadeInRight" data-wow-delay="0.4s">
+						<h3>Как это работает</h3>
+						<p>Текст</p>
+					</div>
+					<div class="work-section-grids text-center wow fadeInUp" data-wow-delay="0.4s">
+						<div class="col-md-3 work-section-grid">
+							<i class="ear-phones"></i>
+							<h4>Шаг 1</h4>
+							<p>Текст</p>
+							<span class="arrow1"><img src="images/arrow1.png" alt="" /></span>
+						</div>
+						<div class="col-md-3 work-section-grid wow fadeInUp" data-wow-delay="0.6s">
+							<i class="lock"></i>
+							<h4>Шаг 2</h4>
+							<p>Текст</p>
+							<span class="arrow2"><img src="images/arrow2.png" alt="" /></span>
+						</div>
+						<div class="col-md-3 work-section-grid wow fadeInUp" data-wow-delay="0.8s">
+							<i class="cloud"></i>
+							<h4>Шаг 3</h4>
+							<p>Текст</p>
+							<span class="arrow1"><img src="images/arrow1.png" alt="" /></span>
+						</div>
+						<div class="col-md-3 work-section-grid wow fadeInUp" data-wow-delay="0.10s">
+							<i class="done"></i>
+							<h4>Шаг 4</h4>
+							<p>Текст</p>
+						</div>
+						<div class="clearfix"></div>
+                        
+						<a class="scroll" href="#home"><div class="workscroll">Привлечь клиентов!</div></a>
+					</div>
+				</div>
+			</div>
+			<div class="happy-clients" id="clients">
+				<div class="container">
+					<div class="happy-clients-head text-center wow fadeInRight" data-wow-delay="0.4s">
+						<h3>Отзовы клиентов</h3>
+						<p>Текст</p>
+					</div>
+					<div class="happy-clients-grids">
+						<div class="col-md-6 happy-clients-grid wow bounceIn" data-wow-delay="0.4s">
+							<div class="client">
+								<img src="images/client_1.jpg" alt="" />
+							</div>
+							<div class="client-info">
+								<p><img src="images/open-quatation.jpg" class="open" alt="" />Последние данные подтвердили, что продажа нашего товара лучше всего двигается через контекстную рекламу, как и предсказывали сотрудники компании DomeLines. Мы рады, что согласились работать именно в этом направлении, так как отдача совпадает с прогнозом. В планах расширение видов сотрудничества с этой компанией.<img src="images/close-quatation.jpg" class="closeq" alt="" /></p>
+								<h4><a href="#">Натали, </a>Менеджер</h3>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="col-md-6 happy-clients-grid span_66 wow bounceIn" data-wow-delay="0.4s">
+							<div class="client">
+								<img src="images/client_2.jpg" alt="" />
+							</div>
+							<div class="client-info">
+								<p><img src="images/open-quatation.jpg" class="open" alt="" />После работы с данной компанией магазин стал стабильно держится, из десятки не опускаемся. Сейчас очень часто происходят апдейты. Гугл ведет себя более стабильно, а яндекс постоянно что-то придумывает. Но ничего, позиции держим, за это и благодарны SEO. Разрабатываем совместную стратегию). что еще отметить... просто спасибо) Хорошо работает клиентская поддержка. Надеемся на дальнейшее удачное сотрудничество.<img src="images/close-quatation.jpg" class="closeq" alt="" /></p>
+								<h4><a href="#">Имя, </a>Должность</h3>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="col-md-6 happy-clients-grid wow bounceIn" data-wow-delay="0.4s">
+							<div class="client">
+								<img src="images/client_3.jpg" alt="" />
+							</div>
+							<div class="client-info">
+								<p><img src="images/open-quatation.jpg" class="open" alt="" />Спасибо что на заявку быстро откликнулись! Оставил заявку на Landing page, ответом и оперативностью был порадован. Приступили к работе, как только им перечислили денег. По доходу своего магазину вижу результат есть. Цены на услуги доступные.<img src="images/close-quatation.jpg" class="closeq" alt="" /></p>
+								<h4><a href="#">Имя, </a>Должность</h3>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="col-md-6 happy-clients-grid span_66 wow bounceIn" data-wow-delay="0.4s">
+							<div class="client">
+								<img src="images/client_4.jpg" alt="" />
+							</div>
+							<div class="client-info">
+								<p><img src="images/open-quatation.jpg" class="open" alt="" />Занявшись собственным делом и продвижением рекламы своих услуг, я прежде всего, подумал о рекламе и продвижении в сети, ведь сейчас это наиболее эффективный способ пиара. Обратился в сервис услуг DomLines - качественно, недорого, а, главное, действенно: поток клиентов значительно увеличился с момента сотрудничества с сео-компанией, бизнес растет. Спасибо большое! Не прощаюсь;)
+<img src="images/close-quatation.jpg" class="closeq" alt="" /></p>
+								<h4><a href="#">Имя,  </a>должность</h3>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>	
+			<div class="contact-section" id="contact">
+				<div class="container">
+					<div class="contact-section-head text-center wow fadeInLeft" data-wow-delay="0.4s">
+						<h3>Контакты</h3>
+						<p>Вы пролистали до конца, но не оставили заявку? Так чего Вы ждёте? Действуйте!</p>
+					</div>
+					<div class="form wow fadeInLeft" data-wow-delay="0.4s">
+						<form>
+							<li>
+								<input type="text" class="text" value="Имя" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+								<a class="name" href="#"></a>
+							</li>
+							<li>
+								<input type="text" class="text" value="электронная почта" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}">
+								<a class="mail" href="#"></a>
+							</li>
+								<input type="submit" value="Действуйте">
+						</form>
+					</div>
+					<div class="map">
+						<img src="images/map.jpg" alt="" />
+						<div class="location wow bounceIn" data-wow-delay="0.4s">
+							<div class="address text-center">
+								<h4>Адрес</h4>
+								<p>Город</p>
+								<p>Улица</p>
+								<p>Дом</p>
+								<p>Телефон: 89012345678</p>
+								<a href="">сайт.ру</a>
+								<span class="locate"><img src="images/locate.png" alt="" /></span>
+							</div>
+							<div class="bottom-logo text-center">
+								<img src="images/logo.png" alt="" />
+							</div>
+						</div>
+					</div>
+					<div class="contact-bottom text-center">
+						<div class="bottom-menu wow bounceInRight" data-wow-delay="0.4s">
+							<ul>     
+								<li><a class="scroll" href="#home">Дом</a></li>                                                                               
+								<li><a class="scroll" href="#service">Услуги</a></li>
+								<li><a class="scroll" href="#about">О нас</a></li>
+								<!-- <li><a class="scroll" href="#pricing">Pricing Table</a></li> -->
+								<li><a class="scroll" href="#work">Как это работает</a></li>
+								<li><a class="scroll" href="#clients">Отзовы</a></li>
+								<li><a class="scroll" href="#contact">Контакты</a></li>
+							</ul>
+						</div>
+						<p class="call wow fadeInRight" data-wow-delay="0.4s"><i class="phone wow fadeInLeft" data-wow-delay="0.4s"></i> +79012345678</p>
+						<div class="social-icons">
+							<a class="wow bounceIn" data-wow-delay="0.4s" href="#"><i class="twitter"></i></a>
+							<a class="wow bounceIn" data-wow-delay="0.4s" href="#"><i class="facebook"></i></a>
+							<a class="wow bounceIn" data-wow-delay="0.4s" href="#"><i class="googlepluse"></i></a>
+							<a class="wow bounceIn" data-wow-delay="0.4s" href="#"><i class="linkedin"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<div class="copyright text-center wow bounceInLeft" data-wow-delay="0.4s">
+				<script> 
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ 
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), 
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) 
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); 
+
+ga('create', 'UA-87351980-1', 'auto'); 
+ga('send', 'pageview'); 
+
+</script>
+<!— Yandex.Metrika informer —> 
+<a href="https://metrika.yandex.ru/stat/?id=40927024&amp;f.." 
+target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/40927024/3_0_FFFF.." 
+style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="40927024" data-lang="ru" /></a> 
+<!— /Yandex.Metrika informer —> 
+
+<!— Yandex.Metrika counter —> 
+<script type="text/javascript"> 
+(function (d, w, c) { 
+(w[c] = w[c] || []).push(function() { 
+try { 
+w.yaCounter40927024 = new Ya.Metrika({ 
+id:40927024, 
+clickmap:true, 
+trackLinks:true, 
+accurateTrackBounce:true, 
+webvisor:true, 
+trackHash:true, 
+ut:"noindex", 
+ecommerce:"dataLayer" 
+}); 
+} catch(e) { } 
+}); 
+
+var n = d.getElementsByTagName("script")[0], 
+s = d.createElement("script"), 
+f = function () { n.parentNode.insertBefore(s, n); }; 
+s.type = "text/javascript"; 
+s.async = true; 
+s.src = "https://mc.yandex.ru/metrika/watch.js"; 
+
+if (w.opera == "[object Opera]") { 
+d.addEventListener("DOMContentLoaded", f, false); 
+} else { f(); } 
+})(document, window, "yandex_metrika_callbacks"); 
+</script> 
+<!— /Yandex.Metrika counter —>
+					<!-- <p>Copyright &copy; 2016 All rights reserved | Template by  <a href="http://vk.com/roman_gabibullae">  Роман Габибуллаев</a> и W3layouts</p> -->
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+						$(document).ready(function() {
+							/*
+							var defaults = {
+					  			containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear' 
+					 		};
+							*/
+							
+							$().UItoTop({ easingType: 'easeOutQuart' });
+							
+						});
+					</script>
+				<a class="scroll" href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+				
+				<div class="b-popup" id="popup1">
+			
+    <div  class="b-popup-content about_right" >
+        Нам есть чем выделиться среди коллег. Все наши идеи максимально креативны и направлены на удовлетворение потребностей конкретного клиента. 
+Мы стараемся, чтобы задачи были выполнены максимально качественно и главное, эффективно. Наши уникальные методы, направлены на достижение высоких целей и роста Вашего бизнеса
+		<p></p>
+    <a href="javascript:PopUpHide()">Скрыть</a>
+    
+	</div>
+</div>
+				
+				</body>
+</html>
