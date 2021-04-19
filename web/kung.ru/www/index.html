@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru-ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="./css/normalize.min.css" rel="stylesheet" type="text/css">
+		<!--<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">-->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link href="./css/css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
+        <script src="./js/jquery-1.11.3.min.js"></script>
+        <script src="./js/underscore-min.js"></script>
+        <script>window.tobiz = {"project_id":"23013","rep_id":"34306","user_id":"2","owner_email":"guilty.warriors@gmail.com","user_email":"templates@tobiz.net","bs":true,"t":"4","w":1}</script>
+        <link rel="stylesheet" type="text/css" href="./css/style.min.css">                
+		<script type="text/javascript" src="./js/script.min.js"></script>                        
+		<meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+        <link href="./css/mobile.min.css" rel="stylesheet">
+        <title></title>
+		<link rel="stylesheet" type="text/css" href="simplebox.css">    
+		<script type="text/javascript" src="simplebox_util.js"></script>
+            <script type="text/javascript">
+                $(function () {
+                    $('body').on('submit', 'form[action="mail.php"]', function (event) {
+                        event.preventDefault();
+                        var this_form = $(this);
+                        if (!$(this).children("input[name=project_id]").length)
+                            $(this).prepend('<input type="hidden" name="project_id" value="' + window.tobiz.project_id + '">');
+                        if (!$(this).children("input[name=page_id]").length)
+                            $(this).prepend('<input type="hidden" name="page_id" value="' + window.tobiz.rep_id + '">');
+                        if (!$(this).children("input[name=referrer]").length)
+                            $(this).prepend('<input type="hidden" name="referrer" value="' + document.referrer + '">');
+                        if (!$(this).children("input[name=user_id]").length)
+                            $(this).prepend('<input type="hidden" name="user_id" value="' + window.tobiz.user_id + '">');
+
+                        if ($(this).find("[data-action]").size()) {
+                            console.log(123);
+                            $(this).prepend('<input type="hidden" name="action" value="' + $(this).find("[data-action]").data('action') + '">');
+                            $(this).prepend('<input type="hidden" name="amount" value="' + $(this).find("[data-action]").data('amount') + '">');
+                            $(this).prepend('<input type="hidden" name="url" value="' + $(this).find("[data-action]").data('url') + '">');
+                        } else {
+                            console.log('not found');
+                        }
+                        var formData = new FormData($(this)[0]);
+                        var this_block = $(this).closest('.section');
+                        $.ajax({
+                            dataType: "json",
+                            type: "POST",
+                            url: "/mail.php",
+                            data: formData,
+                            async: false,
+                            cache: false,
+                            contentType: false,
+                            processData: false
+                        }).done(function (data) {
+                            if (data.status == 'OK') {
+                                alert(data.msg);
+                                this_form.each(function () {
+                                    $(this)[0].reset();
+                                })
+                                $('.popup_form').hide();
+                            }
+                            if (data.status == 'ERROR') {
+                                alert(data.msg);
+                            }
+                            if (data.status == 'JC') {
+                                        $('body').append(data.form);
+                                $('#jc_form').submit();
+                                this_form.each(function () {
+                                    $(this)[0].reset();
+                                })
+                            }
+                            if (data.status == 'SR') {
+                                        $('body').append(data.form);
+                                $('#sr_form').submit();
+                                this_form.each(function () {
+                                    $(this)[0].reset();
+                                })
+                            }
+                            if (data.status == 'GR') {
+                                        $('body').append(data.form);
+                                $('#gr_form').submit();
+                                this_form.each(function () {
+                                    $(this)[0].reset();
+                                })
+                            }
+                            if (data.status == 'RK') {
+                                        this_form.each(function () {
+                                    $(this)[0].reset();
+                                })
+                                window.location.href = data.url;
+                            }
+                            if (data.status == 'redirect') {
+                                        this_form.each(function () {
+                                    $(this)[0].reset();
+                                })
+
+
+                                window.location.href = data.url;
+                            }
+                            if (data.status == 'thanks') {
+                                        this_block.find('.popup_thanks').show();
+                                this_form.each(function () {
+                                    $(this)[0].reset();
+                                })
+                                $('.popup_form').hide();
+                                this_block.find('.extra_info_block_wrapper').hide();
+                            }
+                            if (data.status == 'thanks_order_complete') {
+                                        this_block.find('.popup_thanks').show();
+                                this_form.each(function () {
+                                    $(this)[0].reset();
+                                })
+                                window.basket.clean();
+                                window.basket.hideForm();
+                                window.basket.renderForm();
+                                window.basket.renderBtn();
+                                window.basket.hideBtn();
+                                alert('Спасибо ваш заказ успешно оформлен!');
+                                $('.popup_form').hide();
+                            }
+                        }).error(function (xhr, ajaxOptions, thrownError) {
+                            console.log(xhr.status);
+                            console.log(thrownError)
+                        });
+                    })
+                })
+            </script>
+<style id="page_style">
+</style>
+</head>
+<body class="editor_false">
+        <div id="wrapper" style="padding-top: 0px;">
+<div class="hide_line section section101 " style="  background-image:url(/img/null.png);"><a name="a_166464"></a><div class="section_inner">
+							
+								<div class="logo_img"><img src="./img/logo.png" alt="" style="width: 128px; height: 128px;"></div>							
+							<div class="text1"     style="padding-bottom: 10px;"> Пекинская Школа Шаолинского Кунг-Фу ждет Вас</div>
+							<div class="phone-and-address"><div class="phone1">37-25-86</div>
+							<div class="address1">г.Чебоксары, ул. Ярославская 72, офис 14</div></div>
+							<div class="clear"></div>
+						</div></div>
+
+<div class="section section153   " style=" background-image:url(/img/1920x0/91d8ce9ac5e44077a7e0b1bc748bb43e.jpg);"><a name="a_74158"></a>
+							
+							<div class="dark"></div>
+							<div class="noise" style="background-image:url(./img/zap.png); background-repeat: no-repeat; background-position-x: center; background-size: contain;"></div>
+							<div class="section_inner  big   ">
+								<div class="title  ">Занятия по кунг-фу<br></div>
+								<div class="sub_title  ">1 занятие у мастера бесплатно</div>
+								
+									<div class="">
+									<div class="btn1 surround glitter glitter" style="background-color:#FF0000; ">Записаться </div>
+									</div>
+									
+
+									<div class="btn_descr"><br></div>
+								
+								<div class="popup_form">
+                        <div class="popup_form_inner">
+								<div class="popup_form_close">X</div>
+								<div class="popup_form_title">Оставить  заявку</div>
+								<form action="mail.php" enctype="multipart/form-data" method="post">
+									<div class="form1"><input name="Название формы" value="" type="hidden">	<div class="field"><div class="field_title">Введите имя</div><div class="field_description"></div><div class="field_input"><input required="required" name="name" type="text"></div></div><div class="field"><div class="field_title">Введите номер телефона</div><div class="field_description"></div><div class="field_input"><input required="required" name="phone" type="text"></div></div><div class="field"><div class="field_input"><input class="submit_btn surround" data-action="thanks" data-url="" data-amount="0" value="Записаться" style="background-color:#FF0000; " type="submit"></div></div></div>
+								</form>
+								<div class="popup_form_text">Мы не передаем Вашу персональную информацию третьим лицам.</div>
+						</div>
+                    </div>
+                
+								<div class="popup_thanks">
+                        <div class="popup_thanks_inner">
+                            <div class="popup_thanks_close">X</div>
+                            <div class="popup_thanks_title">Спасибо за заявку!</div>
+                            <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время.</div>
+                        </div>
+                    </div>
+                
+							</div>
+						</div>
+
+<div class="hide_line section section138  img_zoom" style=""><a name="a_74161"></a>
+							<div class="section_inner">
+								<div class="sub_title  "> Двумя наиболее типичными проявлениями формы кунг-фу являются приемы и их комбинации. Приемом называется определенное положение и/или движение рук, ног, головы и туловища человека. Иногда приемом может называться короткая серия определенных движений. Например, человек может широко раскинуть обе руки, поджать под себя правую ногу и резко выбросить ее вперед, внешним ребром стопы наружу. Вот такое действие называется приемом, известным в кунг-фу как «Белый журавль расправляет крылья». <br></div>
+								<div class="video  border   shadow  "><div class="video_holder" data-video="https://www.youtube.com/embed/HcdKNwuZvJ4" style="width:620px; height:430px; background-image: url(https://i.ytimg.com/vi/HcdKNwuZvJ4/hqdefault.jpg);"></div></div> 
+							</div>
+						</div>
+
+<div class="hide_line section section250 mode_2  " style="  background-image:url(/img/null.png);"><a name="a_74162"></a>
+							<div class="section_inner">
+									<div class="arr1">
+										<div class="col_2">
+												<div class="image1  border   shadow  "><img src="./img/bry.jpg" alt=""></div>
+											<div class="overlay_image_box ">
+												<div class="overlay_image_title title1">Школа кунг-фу<br></div>
+												<div class="overlay_image_subtitle subtitle1">Совместно с руководством головного центра Пекинской школы шаолиньского кунг-фу разработана 6-летняя программа обучения кунг-фу. Она предусматривает промежуточные экзамены по различным дисциплинам. По окончании обучения спортсмены должны профессионально овладеть 28 стилями кунг-фу, 13 из которых не предусматривают оружие (из них 3 стиля — подражательные) и 11 видов с оружием (меч, шест, алебарда, цепь, хлыст, нунчаки, шаолиньский веер и т. д.). 
+Спортсмены, успешно сдавшие экзамены, получат дипломы школы международного образца. </div>
+											</div>
+											<div class="btn1 surround  hidden  " style="background-color:#D62B2B;">Кнопка</div>
+											<div class="popup_form">
+                        <div class="popup_form_inner">
+								<div class="popup_form_close">X</div>
+								<div class="popup_form_title">Оставить  заявку</div>
+								<form action="mail.php" enctype="multipart/form-data" method="post">
+									<div class="form1"><div class="field"><div class="field_title">Введите имя</div><div class="field_description"></div><div class="field_input"><input required="required" name="name" type="text"></div></div><div class="field"><div class="field_title">Введите E-mail</div><div class="field_description"></div><div class="field_input"><input required="required" name="text" type="text"></div></div><div class="field"><div class="field_title">Введите номер телефона</div><div class="field_description"></div><div class="field_input"><input required="required" name="phone" type="text"></div></div><div class="field"><div class="field_input"><input class="submit_btn" data-action="thanks" data-url="" data-amount="0" value="Отправить" style="color:#ff0000;" type="submit"></div></div></div>
+								</form>
+								<div class="popup_form_text">Мы не передаем Вашу персональную информацию третьим лицам.</div>
+						</div>
+                    </div>
+										</div>
+										<div class="col_2 last">
+												<div class="image2  border   shadow  "><img src="./img/med.jpg" alt=""></div>
+											<div class="overlay_image_box ">
+												<div class="overlay_image_title title2">Обучение Кунг-Фу<br></div>
+												<div class="overlay_image_subtitle subtitle2"> Обучение в чебоксарском филиале школы предусматривает регулярные поездки в Китай на учебно-тренировочные сборы в головном центре. Ежегодно школа выделяет 10 бесплатных мест для детей из малоимущих семей и 8 бесплатных мест для пенсионеров. Остальные спортсмены проходят месячное обучение по себестоимости. В свободное от тренировок время дети выезжают на экскурсии: Великая китайская стена, Запретный город, Олимпийская деревня, парк развлечений, Ущелье дракона и другие. <div>Спортсмены филиалов школы имеют прямой доступ ко всем мероприятиям, которые проводит главный тренировочный центр. На сегодня это международный фестиваль кунг-фу и Международный чемпионат по кунг-фу. В этих престижных соревнованиях ежегодно участвует более 6000 спортсменов со всего мира.</div> </div>
+											</div>
+											<div class="btn2 surround  hidden  " style="background-color:#D62B2B;">Кнопка</div>
+											<div class="popup_form">
+                        <div class="popup_form_inner">
+								<div class="popup_form_close">X</div>
+								<div class="popup_form_title">Оставить  заявку</div>
+								<form action="mail.php" enctype="multipart/form-data" method="post">
+									<div class="form2"><div class="field"><div class="field_title">Введите имя</div><div class="field_description"></div><div class="field_input"><input required="required" name="name" type="text"></div></div><div class="field"><div class="field_title">Введите E-mail</div><div class="field_description"></div><div class="field_input"><input required="required" name="text" type="text"></div></div><div class="field"><div class="field_title">Введите номер телефона</div><div class="field_description"></div><div class="field_input"><input required="required" name="phone" type="text"></div></div><div class="field"><div class="field_input"><input class="submit_btn" data-action="thanks" data-url="" data-amount="0" value="Отправить" style="color:#ff0000;" type="submit"></div></div></div>
+								</form>
+								<div class="popup_form_text">Мы не передаем Вашу персональную информацию третьим лицам.</div>
+						</div>
+                    </div>
+										</div>
+										<div class="clear"></div>
+									</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+<div class="hide_line section section126 " style="  background-image:url(/img/null.png);"><a name="a_74173"></a>
+							<div class="section_inner">
+								<div class="title  ">Занятия по кунг-фу<br></div>
+								<div class="sub_title  "><br></div>
+									<div class="arr1">
+											<div class="image1 size_450x350  border   shadow  "><img src="./img/dd.jpg" alt=""></div>
+										<div class="right size_450x350">
+											<div class="title1">"Кунг-фу Панда" 3+<br></div>
+											<div class="txt1 "> Секция для детей включает в себя: растяжка, гибкость, дыхание и игры с элементами Кунг-фу<div> 
+											<p style="font-weight: bold;">"Кунг-фу Уи" 7+ 12+</p>
+											<p>Поможет приобрести Вашим детям силу, ловкость, координацию, гибкость и грациозность движения! кроме того Кунг-фу способствуют умению концентрироваться, улучшению памяти и внимания, а это залог успеха в учебе!</p>
+											<!--<p style="color: #bb0000; font-weight: bold;">Кунг-фу Уи1 - первый год обучения, новички;Кунг-фу Уи2 - второй и более год обучения</p>-->
+											</div>
+											<div style="font-weight: bold;"><br>Группа Кунг - Фу Панда (3-6лет) - занимаются 2 раза в неделю  
+											<p>1500 руб в месяц (8 занятий). </p>
+											<br>
+											<p>Разовое занятие - 250 руб</p>
+											</div>
+											</div>
+											<div class="price1  hidden  ">1 000 руб.</div>
+											<div class="price_descr1  hidden  ">Предложение ограничено! Успейте оформить заявку до конца декабря!</div>
+												<div class="btn1 surround glitter glitter" style="background-color:#FF0000;">Записаться на занятие</div>
+											<div class="popup_form">
+                        <div class="popup_form_inner">
+								<div class="popup_form_close">X</div>
+								<div class="popup_form_title">Оставить  заявку</div>
+								<form action="mail.php" enctype="multipart/form-data" method="post">
+									<div class="form1"><input name="Название формы" value="" type="hidden">	<div class="field"><div class="field_title">Введите имя</div><div class="field_description"></div><div class="field_input"><input required="required" name="name" type="text"></div></div><div class="field"><div class="field_title">Введите номер телефона</div><div class="field_description"></div><div class="field_input"><input required="required" name="phone" type="text"></div></div><div class="field"><div class="field_input"><input class="submit_btn surround" data-action="thanks" data-url="" data-amount="0" value="Записаться на занятие" style="background-color:#FF0000; " type="submit"></div></div></div>
+								</form>
+								<div class="popup_form_text">Мы не передаем Вашу персональную информацию третьим лицам.</div>
+						</div>
+                    </div>
+										</div>
+										<div class="clear"></div>
+									</div> 
+									<div class="arr1">
+											<div class="image1 size_450x350  border   shadow  "><img src="./img/tt.jpg" alt=""></div>
+										<div class="right size_450x350">
+											<div class="title1">Тайцзицюань и Цигун<br></div>
+											<div class="txt1 "> Для оздоровления организма (снятия стресса и напряжения, от болей в суставах, шее и позвоночника)
+											<p style="font-weight: bold;">Цигун-Тераия</p>
+											<p>Для людей с имеющимися заболеваниями как система оздоровления( при заболеваниях сердечно-сосудистой и пищеварительной систем, улучшает обмен веществ, способствует укреплению мыщц, суставов и сухожилий, показан при онкологии и других хаболеваний)</p>
+											<p style="font-weight: bold;">Китайские танцы (14+, взрослые)</p>
+											<p>Постановка китайских танцев, гибкость, растяжка, пластика, с элементами Кунг-фу</p>
+											<div style="font-weight: bold;"><br>8 занятий в месяц - 1600 руб (посещение 2 раза в неделю)  
+											<p>12 занятий в месяц - 2000 руб (посещение 3 раза в неделю)  </p>
+											<br>
+											<p>Разовое занятие - 250 руб</p>
+											</div></div>
+											<div class="price1  hidden  ">1 000 руб.</div>
+											<div class="price_descr1  hidden  ">Предложение ограничено! Успейте оформить заявку до конца декабря!</div>
+												<div class="btn1 surround glitter" style="background-color:#FF0000;">Записаться на занятие</div>
+											<div class="popup_form">
+                        <div class="popup_form_inner">
+								<div class="popup_form_close">X</div>
+								<div class="popup_form_title">Оставить  заявку</div>
+								<form action="mail.php" enctype="multipart/form-data" method="post">
+									<div class="form1"><input name="Название формы" value="" type="hidden">	<div class="field"><div class="field_title">Введите имя</div><div class="field_description"></div><div class="field_input"><input required="required" name="name" type="text"></div></div><div class="field"><div class="field_title">Введите номер телефона</div><div class="field_description"></div><div class="field_input"><input required="required" name="phone" type="text"></div></div><div class="field"><div class="field_input"><input class="submit_btn surround" data-action="thanks" data-url="" data-amount="0" value="Записаться на занятие" style="background-color:#FF0000; " type="submit"></div></div></div>
+								</form>
+								<div class="popup_form_text">Мы не передаем Вашу персональную информацию третьим лицам.</div>
+						</div>
+                    </div>
+										</div>
+										<div class="clear"></div>
+									</div> 
+									<div class="arr1">
+											<div class="image1 size_450x350  border   shadow  "><img src="./img/vv.jpg" alt=""></div>
+										<div class="right size_450x350">
+											<div class="title1">Кунг-Фу Файтинг 12+<br></div>
+											<div class="txt1 "> 
+											<div>Это возможность ускорить реакцию, научиться считывать поведение соперников, блокировать приемы, научиться эффективно контратаковать. Тренировки по Кунг-Фу Файтинг позволя.т повысить выносливость и улучшить физическую форму, укрепить боевой дух и увереность в себе
+											<br>
+											</div>
+											<p style="font-weight: bold;">Вин Чун</p>
+											<p>Китайское боевое искусство с 14 лет и взрослые, не требует мышечной массы и особых навыков, идеален для женской самозащиты. Стиль легендарного Брюса Ли!</p>
+											<div>
+											<div><div style="font-weight: bold;"><br>8 занятий в месяц - 1600 руб (посещение 2 раза в неделю)  
+											<p>12 занятий в месяц - 2000 руб (посещение 3 раза в неделю)  </p>
+											<br>
+											<p>Разовое занятие - 250 руб</p>
+											</div></div></div></div>
+											<div class="price1  hidden  ">1 000 руб.</div>
+											<div class="price_descr1  hidden  ">Предложение ограничено! Успейте оформить заявку до конца декабря!</div>
+												<div class="btn1 surround glitter" style="background-color:#FF0000;">Записаться на занятие</div>
+											<div class="popup_form">
+                        <div class="popup_form_inner">
+								<div class="popup_form_close">X</div>
+								<div class="popup_form_title">Оставить  заявку</div>
+								<form action="mail.php" enctype="multipart/form-data" method="post">
+									<div class="form1"><input name="Название формы" value="" type="hidden">	<div class="field"><div class="field_title">Введите имя</div><div class="field_description"></div><div class="field_input"><input required="required" name="name" type="text"></div></div><div class="field" style="display: none;"><div class="field_title">Введите E-mail</div><div class="field_description"></div><div class="field_input"><input required="required" name="text" type="text"></div></div><div class="field"><div class="field_title">Введите номер телефона</div><div class="field_description"></div><div class="field_input"><input required="required" name="phone" type="text"></div></div><div class="field"><div class="field_input"><input class="submit_btn surround" data-action="thanks" data-url="" data-amount="0" value="Записаться на занятие" style="background-color:#FF0000; " type="submit"></div></div></div>
+								</form>
+								<div class="popup_form_text">Мы не передаем Вашу персональную информацию третьим лицам.</div>
+						</div>
+                    </div>
+										</div>
+										<div class="clear"></div>
+									</div> 
+									<div class="title  " style="margin-top: 20px; margin-bottom: 20px;">НАШ ШИФУ<br></div>
+								<div class="arr1">
+											<div class="image1 size_450x350  border   shadow  " ><img src="./img/tren.jpg" alt=""></div>
+										<div class="right size_450x350 ss" >
+											<div class="title1">Михайлов Павел Юрьевич Директор ДСК"Сяо Лун"<br></div>
+											<div class="txt1 "> 
+											<div>Руководитель городского клуба "Вин-Чун", 
+											
+											<p>Председатель общества изучения тайцзи-цюань и цигун "Белый Лотос," </p>
+											<p>Заместитель директора Китайского Культурного Центра;</p>
+											<p>Трех кратный чемпион мира по ушу/кунг-фу;</p>
+											<p>Директор Центра боевых искусств "Кэмпо".</p>
+											<!--<p>2014 г.-5-й Пекинский международный турнир по ушу-тайцзицюань-2 золото, тайцзицзянь-1 серебро;</p>
+											<p>2015 г.-6-й -5-й Пекинский международный турнир по ушу-тайцзицюань-3 золото, тайцзицзянь-золото;</p>
+											<p>с 2014 г. является личным учеником Мастера Чэн Дун Фэна, прямая линия передачи традиционного направления Ян Чэн Фу: 21 и 91 формы.</p>
+											-->
+											<p>Подготовил 3-х призеров международных,региональных, республиканских и городских соревнований по тайцзицюань.</p>
+											<p>Михайлов Павел Юрьевич. Практикует Тайцзицюань и цигун с 1990 года. Является 3-х кратным чемпионом мира по кунг-фу, чемпион России по кунг-фу. </p>
+											<p>С 2014 г. является личным учеником Мастера Чэн Дун Фэна, прямая линия передачи традиционного направления Ян Чэн Фу</p>
+											<p>Михайлов П.Ю. занесен в энциклопедию "Who is Who в России" 2014 г. издания.</p>
+											</div>
+											<div>
+											</div></div>
+											<div class="price1  hidden  ">1 000 руб.</div>
+											<div class="price_descr1  hidden  ">Предложение ограничено! Успейте оформить заявку до конца декабря!</div>
+												<div class="btn1 surround glitter" style="background-color:#FF0000; display:none;">Записаться на занятие</div>
+											<div class="popup_form">
+                        <div class="popup_form_inner">
+								<div class="popup_form_close">X</div>
+								<div class="popup_form_title">Оставить  заявку</div>
+								<form action="mail.php" enctype="multipart/form-data" method="post">
+									<div class="form1"><input name="Название формы" value="" type="hidden">	<div class="field"><div class="field_title">Введите имя</div><div class="field_description"></div><div class="field_input"><input required="required" name="name" type="text"></div></div><div class="field" style="display: none;"><div class="field_title">Введите E-mail</div><div class="field_description"></div><div class="field_input"><input required="required" name="text" type="text"></div></div><div class="field"><div class="field_title">Введите номер телефона</div><div class="field_description"></div><div class="field_input"><input required="required" name="phone" type="text"></div></div><div class="field"><div class="field_input"><input class="submit_btn surround" data-action="thanks" data-url="" data-amount="0" value="Записаться на занятие" style="background-color:#FF0000; " type="submit"></div></div></div>
+								</form>
+								<div class="popup_form_text">Мы не передаем Вашу персональную информацию третьим лицам.</div>
+						</div>
+                    </div>
+										</div>
+										<div class="clear"></div>
+									</div> 
+								<div class="popup_thanks">
+                        <div class="popup_thanks_inner">
+                            <div class="popup_thanks_close">X</div>
+                            <div class="popup_thanks_title">Спасибо за заявку!</div>
+                            <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время.</div>
+                        </div>
+                    </div>
+							</div>
+						</div>
+<div class="hide_line section section151  " style="  background-image:url(/img/null.png); display: none;"><a name="a_74175"></a>
+							<!--<div class="section_inner">
+								<div class="title  ">Наши тренеры<br></div>-->
+								<div class="sub_title  "><br></div>
+									<div class="arr1" style="display:none;">
+										<div class="col_4">
+											<div class="image1  border  "><img src="./23013.lp.tobiz.net_files/eab7a1075d37250a1f32613746981e08.jpg" alt=""></div>
+											<div class="overlay_image_box ">
+												<div class="overlay_image_title title1">Матвеев Сергей<br></div>
+												<div class="overlay_image_subtitle subtitle1">Ведущий тренер. Опыт работы 14 лет</div>
+											</div>
+										</div>
+										<div class="col_4">
+											<div class="image2  border  "><img src="./23013.lp.tobiz.net_files/7e292ef0a3f25bdb7492888c17af0999.jpg" alt=""></div>
+											<div class="overlay_image_box ">
+												<div class="overlay_image_title title2">Михаил Антонов</div>
+												<div class="overlay_image_subtitle subtitle2">Ведущий тренер. Опыт работы 8 лет</div>
+											</div>
+										</div>
+										<div class="col_4">
+											<div class="image3  border  "><img src="./23013.lp.tobiz.net_files/409f4ad71123224baaad455bbf8be996.jpg" alt=""></div>
+											<div class="overlay_image_box ">
+												<div class="overlay_image_title title3">Виктор Стенков<br></div>
+												<div class="overlay_image_subtitle subtitle3">Ведущий тренер. Опыт работы 10 лет</div>
+											</div>
+										</div>
+										<div class="col_4 last">
+											<div class="image4  border  "><img src="./23013.lp.tobiz.net_files/c0048e646edbdf251dbaf41d071f7d1b.jpg" alt=""></div>
+											<div class="overlay_image_box ">
+												<div class="overlay_image_title title4">Айзар Давыдов<br></div>
+												<div class="overlay_image_subtitle subtitle4">Ведущий тренер. Опыт работы 8 лет</div>
+											</div>
+										</div>
+										<div class="clear"></div>
+									</div>
+								
+								<div class="clear"></div>
+							</div>
+						</div>
+
+<div class="hide_line section section143  " style="  background-image:url(/img/null.png);"><a name="a_74176"></a>
+							<div class="section_inner">
+								<div class="title  ">Галерея</div>
+								<div class="sub_title  ">___________</div>
+								<div class="images">
+											<div class="image_box arr1  border   shadow ooo glitter " id="#ooo">
+											
+											<a href="./img/b1.jpg" rel="simplebox">
+											<img title="Пекинская Школа Шаолинского Кунг-Фу " src="./img/s1.jpg" alt="Пекинская Школа Шаолинского Кунг-Фу " width="400" height="200">
+											</a>
+											<!--<div align="center">
+												<a class="first" title="Пекинская Школа Шаолинского Кунг-Фу" href="img/b1.jpg"><img src="img/s1.jpg"></a>
+											</div>
+												<img src="./23013.lp.tobiz.net_files/5bdded52fb56606f4ad2282a1891f857.jpg" alt="">
+												<div class="overlay_image_box">
+													<div class="overlay_image_title"></div>
+													<div class="overlay_image_descr"></div>
+												</div>-->
+											</div>
+											<div class="image_box arr1  border   shadow ooo glitter" id="#ooo">
+											<a href="./img/b2.jpg" rel="simplebox">
+											<img title="Пекинская Школа Шаолинского Кунг-Фу " src="./img/s2.jpg" alt="Пекинская Школа Шаолинского Кунг-Фу " width="400" height="200">
+											</a>
+											<!--<div align="center">
+												<a class="first" title="Пекинская Школа Шаолинского Кунг-Фу" href="img/b2.jpg"><img src="img/s2.jpg"></a>
+											</div>-->
+												<!--<img src="./23013.lp.tobiz.net_files/bc46ad002ab0e9e25420abca1d49388a.jpg" alt="">
+												<div class="overlay_image_box">
+													<div class="overlay_image_title"></div>
+													<div class="overlay_image_descr"></div>
+												</div>-->
+											</div>
+											<div class="image_box arr1  border   shadow ooo glitter" id="#ooo">
+											
+											<a href="./img/b3.jpg" rel="simplebox">
+											<img title="Пекинская Школа Шаолинского Кунг-Фу " src="./img/s3.jpg" alt="Пекинская Школа Шаолинского Кунг-Фу " width="400" height="200">
+											</a>
+											<!--<div align="center">
+												<a class="first" title="Пекинская Школа Шаолинского Кунг-Фу" href="img/b3.jpg"><img src="img/s3.jpg"></a>
+											</div>-->
+												<!--<img src="./23013.lp.tobiz.net_files/615f655024ee6a94aa6e674aae5928be.jpg" alt="">
+												<div class="overlay_image_box">
+													<div class="overlay_image_title"></div>
+													<div class="overlay_image_descr"></div>
+												</div>-->
+											</div>
+											<div class="image_box arr1  border   shadow ooo glitter" id="#ooo">
+											<a href="./img/b4.jpg" rel="simplebox">
+											<img title="Пекинская Школа Шаолинского Кунг-Фу " src="./img/s4.jpg" alt="Пекинская Школа Шаолинского Кунг-Фу " width="400" height="200">
+											</a>
+											<!--<div align="center">
+												<a class="first" title="Пекинская Школа Шаолинского Кунг-Фу" href="img/b4.jpg"><img src="img/s4.jpg"></a>
+											</div>-->
+												<!--<img src="./23013.lp.tobiz.net_files/17a44a403be1d8f67cd0101fd41cd8a6.jpg" alt="">
+												<div class="overlay_image_box">
+													<div class="overlay_image_title"></div>
+													<div class="overlay_image_descr"></div>
+												</div>-->
+											</div>
+											<div class="image_box arr1  border   shadow ooo glitter" id="#ooo">
+											<a href="./img/b5.jpg" rel="simplebox">
+											<img title="Пекинская Школа Шаолинского Кунг-Фу " src="./img/s5.jpg" alt="Пекинская Школа Шаолинского Кунг-Фу " width="400" height="200">
+											</a>
+											<!--<div align="center">
+												<a class="first" title="Пекинская Школа Шаолинского Кунг-Фу" href="img/b5.jpg"><img src="img/s5.jpg"></a>
+											</div>-->
+												<!--<img src="./23013.lp.tobiz.net_files/2a9bf832f26a11800ee77db13484c81f.jpg" alt="">
+												<div class="overlay_image_box">
+													<div class="overlay_image_title"></div>
+													<div class="overlay_image_descr"></div>
+												</div>-->
+											</div>
+											<div class="image_box arr1  border   shadow ooo glitter" id="#ooo">
+											
+											<a href="./img/b6.jpg" rel="simplebox">
+											<img title="Пекинская Школа Шаолинского Кунг-Фу " src="./img/s6.jpg" alt="Пекинская Школа Шаолинского Кунг-Фу " width="400" height="200">
+											</a>
+											<!--<div align="center">
+												<a class="first" title="Пекинская Школа Шаолинского Кунг-Фу" href="img/b6.jpg"><img src="img/s6.jpg"></a>
+											</div>-->
+												<!--<img src="./23013.lp.tobiz.net_files/ee1c15b57b0a5a5d4e5c1991760dbeeb.jpg" alt="">
+												<div class="overlay_image_box">
+													<div class="overlay_image_title"></div>
+													<div class="overlay_image_descr"></div>
+												</div>-->
+											</div>
+									<div class="clear"></div>
+								</div>
+							</div>
+						</div>
+<div class=" section section162   notext  " style="background-image:url(/img/null.png);"><a name="a_165568"></a>
+							<div class="section_inner">
+								<div class="title  ">Как нас найти?</div>
+								<div class="sub_title  ">Пекинская Школа Шаолинского Кунг-Фу находится по адресу:&nbsp;<span style="font-size:14px">г.Чебоксары, ул. Ярославская 72, офис 14</span><br></div>
+								<!--
+								<div class="map"><<div class="map_inner"><ymaps class="ymaps-2-1-55-map" style="width: 940px; height: 300px;"><ymaps class="ymaps-2-1-55-map ymaps-2-1-55-i-ua_js_yes ymaps-2-1-55-map-bg-ru ymaps-2-1-55-islets_map-lang-ru" style="width: 940px; height: 300px;"><ymaps class="ymaps-2-1-55-inner-panes"><ymaps class="ymaps-2-1-55-events-pane ymaps-2-1-55-user-selection-none" unselectable="on" style="height: 100%; width: 100%; top: 0px; left: 0px; position: absolute; z-index: 2500; cursor: url(&quot;https://api-maps.yandex.ru/2.1.55/build/release/images/util_cursor_storage_grab.cur&quot;) 16 16, url(&quot;https://api-maps.yandex.ru/2.1.55/build/release/images/util_cursor_storage_grab.cur&quot;), move;"></ymaps><ymaps class="ymaps-2-1-55-ground-pane" style="top: 0px; left: 0px; position: absolute; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px) scale(1, 1); z-index: 501;"><ymaps style="position: absolute; z-index: 150;"><canvas height="556" width="1196" style="position: absolute; width: 1196px; height: 556px; left: -128px; top: -128px;"></canvas></ymaps></ymaps><ymaps class="ymaps-2-1-55-copyrights-pane" style="height: 0px; bottom: 5px; right: 3px; top: auto; left: 10px; position: absolute; z-index: 5002;"><ymaps><ymaps class="ymaps-2-1-55-copyright ymaps-2-1-55-copyright_logo_no" style=""><ymaps class="ymaps-2-1-55-copyright__fog">…</ymaps><ymaps class="ymaps-2-1-55-copyright__wrap"><ymaps class="ymaps-2-1-55-copyright__layout"><ymaps class="ymaps-2-1-55-copyright__content-cell"><ymaps class="ymaps-2-1-55-copyright__content"><ymaps class="ymaps-2-1-55-copyright__text">© Яндекс</ymaps><ymaps class="ymaps-2-1-55-copyright__agreement">&nbsp;<a class="ymaps-2-1-55-copyright__link" target="_blank" href="https://yandex.ru/legal/maps_termsofuse/?lang=ru">Условия использования</a></ymaps></ymaps></ymaps><ymaps class="ymaps-2-1-55-copyright__logo-cell"><a class="ymaps-2-1-55-copyright__logo" href="http://23013.lp.tobiz.net/?v=34306" target="_blank"></a></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps class="ymaps-2-1-55-map-copyrights-promo"><iframe src="./23013.lp.tobiz.net_files/saved_resource.html" width="181" height="34" scrolling="no" frameborder="0" style="overflow: hidden;"></iframe></ymaps></ymaps><ymaps class="ymaps-2-1-55-controls-pane" style="width: 100%; top: 0px; left: 0px; position: absolute; z-index: 4503;"><ymaps class="ymaps-2-1-55-controls__toolbar" style="margin-top: 10px;"><ymaps class="ymaps-2-1-55-controls__toolbar_left"><ymaps class="ymaps-2-1-55-controls__control_toolbar ymaps-2-1-55-user-selection-none" style="margin-right: 0px; margin-left: 10px;" unselectable="on"><ymaps><ymaps class="ymaps-2-1-55-float-button ymaps-2-1-55-_hidden-text" style="max-width: 90px" title="Определить ваше местоположение"><ymaps class="ymaps-2-1-55-float-button-icon ymaps-2-1-55-float-button-icon_icon_geolocation"></ymaps><ymaps class="ymaps-2-1-55-float-button-text"></ymaps></ymaps></ymaps></ymaps><ymaps class="ymaps-2-1-55-controls__control_toolbar" style="margin-right: 0px; margin-left: 10px;"><ymaps><ymaps class="ymaps-2-1-55-searchbox"><ymaps id="id_150681057389813007515"><ymaps><ymaps class="ymaps-2-1-55-search ymaps-2-1-55-search_layout_normal ymaps-2-1-55-searchbox__normal-layout"><ymaps id="id_150681057389813007516"><ymaps><ymaps class="ymaps-2-1-55-searchbox__input-cell"><ymaps class="ymaps-2-1-55-searchbox-input"><ymaps class="ymaps-2-1-55-searchbox-input__icon"></ymaps><input class="ymaps-2-1-55-searchbox-input__input" placeholder="Адрес или объект" autocomplete="off"><ymaps class="ymaps-2-1-55-searchbox-input__clear-button"></ymaps></ymaps><ymaps class="ymaps-2-1-55-searchbox-list-button"></ymaps></ymaps><ymaps class="ymaps-2-1-55-searchbox__button-cell"><ymaps class="ymaps-2-1-55-searchbox-button ymaps-2-1-55-_pin_right ymaps-2-1-55-user-selection-none" unselectable="on"><ymaps class="ymaps-2-1-55-searchbox-button-text">Найти</ymaps></ymaps></ymaps></ymaps></ymaps><ymaps id="id_150681057389813007517"><ymaps><ymaps class="ymaps-2-1-55-islets_serp-popup ymaps-2-1-55-islets__hidden"><ymaps class="ymaps-2-1-55-islets_serp-popup__tail"></ymaps><ymaps class="ymaps-2-1-55-islets_serp" style="max-height: 215px;"><ymaps id="id_150681057389813007518"><ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps style="z-index: 40000; display: block; position: absolute; width: 251px; top: 29px; left: 48px;"></ymaps></ymaps></ymaps><ymaps class="ymaps-2-1-55-controls__toolbar_right"><ymaps class="ymaps-2-1-55-controls__control_toolbar" style="margin-right: 10px; margin-left: 0px;"><ymaps><ymaps class="ymaps-2-1-55-traffic"><ymaps id="id_150681057389813007528" unselectable="on" class="ymaps-2-1-55-user-selection-none"><ymaps><ymaps class="ymaps-2-1-55-float-button ymaps-2-1-55-float-button_traffic_left" style=""><ymaps class="ymaps-2-1-55-traffic__icon ymaps-2-1-55-traffic__icon_icon_off ymaps-2-1-55-float-button-icon"></ymaps><ymaps class="ymaps-2-1-55-float-button-text"><ymaps>Пробки</ymaps></ymaps></ymaps></ymaps><ymaps></ymaps></ymaps><ymaps id="id_150681057389813007529"><ymaps><ymaps class="ymaps-2-1-55-traffic__panel ymaps-2-1-55-popup ymaps-2-1-55-popup_direction_down ymaps-2-1-55-popup_to_bottom ymaps-2-1-55-popup_theme_ffffff ymaps-2-1-55-user-selection-none" unselectable="on" style="width: 270px;"><ymaps class="ymaps-2-1-55-traffic__tail ymaps-2-1-55-popup__tail"></ymaps><ymaps class="ymaps-2-1-55-traffic__panel-content"><ymaps id="id_150681057389813007530"><ymaps><ymaps class="ymaps-2-1-55-traffic__switcher"><ymaps class="ymaps-2-1-55-traffic__switcher-item ymaps-2-1-55-traffic__switcher-item_data_actual ymaps-2-1-55-traffic__switcher-item_selected_yes">Сегодня</ymaps><ymaps class="ymaps-2-1-55-traffic__switcher-item ymaps-2-1-55-traffic__switcher-item_data_archive">Статистика</ymaps></ymaps></ymaps></ymaps><ymaps></ymaps><ymaps></ymaps><ymaps></ymaps><ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps class="ymaps-2-1-55-controls__control_toolbar" style="margin-right: 10px; margin-left: 0px;"><ymaps><ymaps class="ymaps-2-1-55-listbox ymaps-2-1-55-listbox_opened_no ymaps-2-1-55-listbox_align_right" style="width: 87px;"><ymaps class="ymaps-2-1-55-listbox__button ymaps-2-1-55-_visible-arrow ymaps-2-1-55-user-selection-none" title="" unselectable="on"><ymaps class="ymaps-2-1-55-listbox__button-icon ymaps-2-1-55-_icon_layers"></ymaps><ymaps class="ymaps-2-1-55-listbox__button-text">Слои</ymaps><ymaps class="ymaps-2-1-55-listbox__button-arrow"></ymaps></ymaps><ymaps class="ymaps-2-1-55-listbox__panel ymaps-2-1-55-i-custom-scroll" style="transform: translate3d(0px, 0px, 0px) scale(1, 1);"><ymaps class="ymaps-2-1-55-listbox__list" style="max-height: 999999px;"><ymaps><ymaps><ymaps id="id_150681057389813007539"><ymaps unselectable="on" class="ymaps-2-1-55-user-selection-none"><ymaps class="ymaps-2-1-55-listbox__list-item ymaps-2-1-55-listbox__list-item_selected_yes"><ymaps class="ymaps-2-1-55-listbox__list-item-text">Схема</ymaps></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps><ymaps><ymaps id="id_150681057389813007540"><ymaps unselectable="on" class="ymaps-2-1-55-user-selection-none"><ymaps class="ymaps-2-1-55-listbox__list-item ymaps-2-1-55-listbox__list-item_selected_no"><ymaps class="ymaps-2-1-55-listbox__list-item-text">Спутник</ymaps></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps><ymaps><ymaps id="id_150681057389813007541"><ymaps unselectable="on" class="ymaps-2-1-55-user-selection-none"><ymaps class="ymaps-2-1-55-listbox__list-item ymaps-2-1-55-listbox__list-item_selected_no"><ymaps class="ymaps-2-1-55-listbox__list-item-text">Гибрид</ymaps></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps><ymaps><ymaps id="id_150681057389813007537"><ymaps><ymaps class="ymaps-2-1-55-listbox__list-separator"></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps><ymaps><ymaps id="id_150681057389813007538"><ymaps unselectable="on" class="ymaps-2-1-55-user-selection-none"><ymaps class="ymaps-2-1-55-listbox__list-item ymaps-2-1-55-listbox__list-item_selected_no"><ymaps class="ymaps-2-1-55-listbox__list-item-text">Панорамы</ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps class="ymaps-2-1-55-controls__control_toolbar ymaps-2-1-55-user-selection-none" style="margin-right: 10px; margin-left: 0px;" unselectable="on"><ymaps><ymaps class="ymaps-2-1-55-float-button ymaps-2-1-55-_hidden-text" style="max-width: 28px" title=""><ymaps class="ymaps-2-1-55-float-button-icon ymaps-2-1-55-float-button-icon_icon_expand"></ymaps><ymaps class="ymaps-2-1-55-float-button-text"></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps class="ymaps-2-1-55-controls__bottom" style="top: 300px;"><ymaps class="ymaps-2-1-55-controls__control" style="margin-right: 0px; margin-left: 0px; bottom: 30px; top: auto; right: 10px; left: auto;"><ymaps><ymaps style="display: block;"><ymaps style="display: inline-block; height: 100%; vertical-align: top;"><ymaps id="id_150681057389813007521"><ymaps><ymaps class="ymaps-2-1-55-scaleline" style="width: 72px; min-width: 59px"><ymaps class="ymaps-2-1-55-scaleline__left"><ymaps class="ymaps-2-1-55-scaleline__left-border"></ymaps><ymaps class="ymaps-2-1-55-scaleline__left-line"></ymaps></ymaps><ymaps class="ymaps-2-1-55-scaleline__center"><ymaps class="ymaps-2-1-55-scaleline__label">200&nbsp;км</ymaps></ymaps><ymaps class="ymaps-2-1-55-scaleline__right"><ymaps class="ymaps-2-1-55-scaleline__right-border"></ymaps><ymaps class="ymaps-2-1-55-scaleline__right-line"></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps style="display: inline-block; width: 10px; height: 0"></ymaps><ymaps style="display: inline-block;"><ymaps id="id_150681057389813007522" unselectable="on" class="ymaps-2-1-55-user-selection-none"><ymaps><ymaps class="ymaps-2-1-55-float-button ymaps-2-1-55-_hidden-text" style="max-width: 28px" title="Измерение расстояний на карте"><ymaps class="ymaps-2-1-55-float-button-icon ymaps-2-1-55-float-button-icon_icon_ruler"></ymaps><ymaps class="ymaps-2-1-55-float-button-text"></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps class="ymaps-2-1-55-controls__control" style="margin-right: 0px; margin-left: 0px; bottom: auto; top: 108px; right: auto; left: 10px;"><ymaps><ymaps class="ymaps-2-1-55-zoom" style="height: 5px"><ymaps class="ymaps-2-1-55-zoom__plus ymaps-2-1-55-zoom__button ymaps-2-1-55-float-button ymaps-2-1-55-user-selection-none" unselectable="on"><ymaps class="ymaps-2-1-55-zoom__icon ymaps-2-1-55-float-button-icon"></ymaps></ymaps><ymaps class="ymaps-2-1-55-zoom__minus ymaps-2-1-55-zoom__button ymaps-2-1-55-float-button ymaps-2-1-55-user-selection-none" unselectable="on"><ymaps class="ymaps-2-1-55-zoom__icon ymaps-2-1-55-float-button-icon"></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps><ymaps class="ymaps-2-1-55-places-pane" style="top: 0px; left: 0px; position: absolute; transition-duration: 0ms; transform: translate3d(0px, 0px, 0px) scale(1, 1); z-index: 2004;"><ymaps class="ymaps-2-1-55-placemark-overlay ymaps-2-1-55-user-selection-none" unselectable="on" style="z-index: 650; height: 0px; width: 0px; position: absolute; left: 623px; top: 120px;"><ymaps class="ymaps-2-1-55-svg-icon ymaps_https___api_maps_yandex_ru_2_1_55_749116296905islands_icon___FF1500_34x41_1506810575825" style="position: absolute; width: 34px; height: 41px; left: -11px; top: -38px;"><ymaps class="ymaps-2-1-55-svg-icon-content" style="font: 13px Arial, sans-serif; position: absolute; text-align: center;left: 5px;top: 6px;width: 16px;height: 16px;"><ymaps></ymaps></ymaps></ymaps></ymaps><ymaps class="ymaps-2-1-55-placemark-overlay ymaps-2-1-55-user-selection-none" unselectable="on" style="z-index: 650; height: 0px; width: 0px; position: absolute; left: 404px; top: 134px;"><ymaps class="ymaps-2-1-55-svg-icon ymaps_https___api_maps_yandex_ru_2_1_55_749116296905islands_icon___4285F4_34x41_1506810575834" style="position: absolute; width: 34px; height: 41px; left: -11px; top: -38px;"><ymaps class="ymaps-2-1-55-svg-icon-content" style="font: 13px Arial, sans-serif; position: absolute; text-align: center;left: 5px;top: 6px;width: 16px;height: 16px;"><ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></ymaps></div></div>
+								-->
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae7886e0d0892a5793773d168f63f3d7a6a26f6800b388db2239f4a424e09b3b0&amp;height=386&amp;lang=ru_RU&amp;scroll=true"></script>
+								<div class="clear"></div>
+							</div>
+					</div>
+<div class="section section153  fixed " style="background-image:url(./img/bot.png); background-size: 80%; background-position: bottom;"><a name="a_74177"></a>
+							<div class="dark"></div>
+							<div class="noise" ></div>
+							<div class="section_inner  ">
+								<div class="title  "><br>Остались вопросы? <br></div>
+								<div class="sub_title  ">Задайте их нашему специалисту оставив заявку на сайте, либо позвоните нам по телефону 37-25-86</div>
+									<div class="btn1 glitter" style="color:#FFFFFF">Заказать звонок</div>
+									<div class="btn_descr"><br></div>
+								<div class="popup_form">
+                        <div class="popup_form_inner">
+								<div class="popup_form_close">X</div>
+								<div class="popup_form_title">Оставить  заявку</div>
+								<form action="mail.php" enctype="multipart/form-data" method="post">
+									<div class="form1"><input name="Название формы" value="" type="hidden">	<div class="field"><div class="field_title">Введите имя</div><div class="field_description"></div><div class="field_input"><input required="required" name="name" type="text"></div></div><div class="field"><div class="field_title">Введите номер телефона</div><div class="field_description"></div><div class="field_input"><input required="required" name="phone" type="text"></div></div><div class="field"><div class="field_input"><input class="submit_btn surround" data-action="thanks" data-url="" data-amount="0" value="Заказать" style="background-color:#AA0000; " type="submit"></div></div></div>
+								</form>
+								<div class="popup_form_text">Мы не передаем Вашу персональную информацию третьим лицам.</div>
+						</div>
+                    </div>
+								<div class="popup_thanks">
+                        <div class="popup_thanks_inner">
+                            <div class="popup_thanks_close">X</div>
+                            <div class="popup_thanks_title">Спасибо за заявку!</div>
+                            <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время.</div>
+                        </div>
+                    </div>
+							</div>
+						</div>
+<div class=" section section103  dark " style="background-color:#3D3D3D;  background-image:url(./img/bbot.jpg); border-top: 4px solid #ffd700;"><a name="a_165451"></a>
+							<div class="section_inner">
+								<div class="slogan">
+										<div class="text1">Занятия по Пекинской Школе &nbsp;<div>Шаолинского Кунг-Фу&nbsp;в г. Чебоксары</div></div>
+										<div class="text2"><span style="font-size:14px">г.Чебоксары, ул. Ярославская 72, офис 14</span></div>
+								</div>
+									<div class="logo_img"><img src="./img/logo.png" alt="Логотип" style="width: 128px; height: 128px;"></div>
+								<div class="phone-and-btn">
+										<div class="phone1">37-25-86</div>
+										<div class="btn1 surround glitter" style="background-color:#ff0000;">Заказать звонок</div>
+										<div class="clear"></div>
+								</div>
+								<div class="clear"></div>
+									<div class="popup_form">
+                        <div class="popup_form_inner">
+								<div class="popup_form_close">X</div>
+								<div class="popup_form_title">Оставить  заявку</div>
+								<form action="mail.php" enctype="multipart/form-data" method="post">
+									<div class="form1"><input name="Название формы" value="" type="hidden">	<div class="field"><div class="field_title">Введите имя</div><div class="field_description"></div><div class="field_input"><input required="required" name="name" type="text"></div></div><div class="field"><div class="field_title">Введите номер телефона</div><div class="field_description"></div><div class="field_input"><input required="required" name="phone" type="text"></div></div><div class="field"><div class="field_input"><input class="submit_btn surround" data-action="thanks" data-url="" data-amount="0" value="Перезвоните мне" style="background-color:#FF0000; " type="submit"></div></div></div>
+								</form>
+								<div class="popup_form_text">Мы не передаем Вашу персональную информацию третьим лицам.</div>
+						</div>
+                    </div>
+									<div class="popup_thanks">
+                        <div class="popup_thanks_inner">
+                            <div class="popup_thanks_close">X</div>
+                            <div class="popup_thanks_title">Спасибо за заявку!</div>
+                            <div class="popup_thanks_text">Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время.</div>
+                        </div>
+                    </div>
+							</div>
+						</div>
+        </div>
+          <script src="simplebox_util.js" type="text/javascript"></script>
+									  <script type="text/javascript">// <![CDATA[
+										(function(){
+										var boxes=[],els,i,l;
+										if(document.querySelectorAll){
+										els=document.querySelectorAll('a[rel=simplebox]');
+										Box.getStyles('simplebox_css','simplebox.css');
+										Box.getScripts('simplebox_js','simplebox.js',function(){
+										simplebox.init();
+										for(i=0,l=els.length;i<l;++i) simplebox.start(els[i]); simplebox.start('a[rel=simplebox_group]'); }); } })();
+										// ]]></script>
+</body></html>
