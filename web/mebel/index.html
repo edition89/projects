@@ -1,0 +1,567 @@
+﻿ <!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Шкафы</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animate.css">
+	    <link rel="stylesheet" href="css/style.css">
+    <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+  </head>
+  <body>
+  	<div class="success">Ваша заявка отправлена!</div>
+	<!-- Modal -->
+	<div class="modal fade" id="call" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+		       		<h2 class="modal-title">Обратный звонок</h2>
+		        	<h4>Заполните поля и мы перезвоним<br>Вам в ближайшее время</h4>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          	<span>&times;</span>
+		        	</button>
+		      	</div>
+	      	<div class="modal-body">
+	      		<form id="myform" action="" method="post">
+	      			<input type="hidden" class="type" value="call" name="type">
+					<input class="name" name="name" type="text" required placeholder="Ваше имя">
+					<input class="tel" name="tel" type="text" required placeholder="Ваш телефон">
+					<p>Передавая информацию сайту вы принимаете условия <a href="#" style="color: red">Политики защиты персональной информации</a></p>
+		       		<button>Перезвоните мне</button>
+	      		</form>
+	      	</div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="zamer" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+		       		<h2 class="modal-title">ЗАКАЗАТЬ<br>БЕСПЛАТНЫЙ ЗАМЕР</h2>
+		        	<h4>Оставьте заявку и мы перезвоним<br>Вам в ближайшее время</h4>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          	<span>&times;</span>
+		        	</button>
+		      	</div>
+	      	<div class="modal-body">
+	      		<form id="myform" action="" method="post">
+	      			<input type="hidden" class="type" value="zamer" name="type">
+					<input class="name" name="name" type="text" required placeholder="Ваше имя">
+					<input class="tel" name="tel" type="text" required placeholder="Ваш телефон">
+					<p>Передавая информацию сайту вы принимаете условия <a href="#" style="color: red">Политики защиты персональной информации</a></p>
+		       		<button>ОСТАВИТЬ ЗАЯВКУ</button>
+	      		</form>
+	      	</div>
+	    </div>
+	  </div>
+	</div>
+    <header>
+    	<div class="container-fluid">
+	    	<div class="container">
+		    	<div class="row">
+		    		<div class="header col-12 d-flex justify-content-between align-items-center flex-wrap">
+		    			<div class="logo-block d-flex justify-content-between align-items-end flex-wrap">
+		    				<img src="images/logo-mini.png" alt="logo" width="200px">
+		    				<span>Кухни на заказ <br> по индивидуальным проектам</span>
+		    			</div>
+		    			<div class="contacts d-flex justify-content-between align-items-center flex-wrap">
+		    				<div class="tel-block d-flex justify-content-sm-between justify-content-center align-items-end">
+		    					<img src="images/phone-icon.png" alt="icon">
+		    					<div>
+			    					<a href="tel:+77777777777">+7 (777) 777 77 77</a>
+			    					<span>Без выходных с 8:00 до 23:00</span>
+		    					</div>
+		    				</div>
+		    				<button data-toggle="modal" data-target="#call">Заказать звонок</button>
+		    			</div>
+		    		</div>
+		    	</div>
+	    	</div>
+    	</div>
+		<nav>
+			<div class="container">
+				<div class="row">
+				    <button class="d-md-none navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+				      	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 124 124" style="enable-background:new 0 0 124 124;" xml:space="preserve">
+							<g><path d="M112,6H12C5.4,6,0,11.4,0,18s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,6,112,6z" fill="#FFFFFF"/><path d="M112,50H12C5.4,50,0,55.4,0,62c0,6.6,5.4,12,12,12h100c6.6,0,12-5.4,12-12C124,55.4,118.6,50,112,50z" fill="#FFFFFF"/><path d="M112,94H12c-6.6,0-12,5.4-12,12s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,94,112,94z" fill="#FFFFFF"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+						</svg>
+				    </button>
+					<div class="col-12 d-md-flex justify-content-between align-items-center collapse" id="navbarToggleExternalContent">
+						<div><a id="l1" class="smoothScroll linnk" href=".mai">Преймущества</a></div>
+						<div><a id="l2" class="smoothScroll linnk" href=".resh">Решения для кухни</a></div>
+						<div><a id="l3" class="smoothScroll linnk" href=".ask">Ответы на вопросы</a></div>
+						<div><a id="l4" class="smoothScroll linnk" href=".reviews">Отзывы</a></div>
+						<div><a id="l5" class="smoothScroll linnk" href="footer">Контакты</a></div>
+					</div>
+				</div>
+			</div>
+		</nav>
+    </header>
+	<main>
+		<div class="first-block">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-7 col-md-5 col-sm-12 col-xs-12">
+						<h1 id="main" class="mainScreen__header">Спроектируем, изготовим и установим кухню </h1>
+						<div class="clearfix visible-md-block"></div>
+
+							<div class="mainScreen__afterHeader">
+								<div>Беспроцентная рассрочка</div>
+								<div>Без первоначального взноса</div>
+								<div>С гарантией 36 месяцев</div>
+							</div>
+
+
+					</div>
+					<div class="col-12 col-lg-5 col-md-7 col-sm-12 col-xs-12">
+						<div class="calculate">
+							<div class="calculate-head"><h2>Закажите разработку<br>проекта кухни</h2></div>
+
+							<hr>
+							<div class="calculate-body">
+								<form id="myform" action="" method="post">
+									<input type="hidden" class="type" value="calculate" name="type">
+									<div><label for="square">ФИО:</label><input class="name" name="name" type="text" required placeholder="Ваше имя"></div>
+									<div><label for="price">E-mail:</label><input class="email" name="email" type="text" required placeholder="Ваш E-mail"></div>
+									<div><label for="phone">Ваш телефон:</label><input type="text" id="phone" name="tel" required class="tel" maxlength="12" required placeholder="+71234567890"></div>
+									<p>Передавая информацию сайту вы принимаете условия <a href="#" style="color: red">Политики защиты персональной информации</a></p>
+									<button style="margin: 0 auto">Оставить заявку</button>
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+<!--<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="mainScreen__pros">
+				<div class="mainScreen__title">Оставьте заявку сейчас <br> и Вы получите</div>
+				<div class="mainScreen__pros-wrap">
+					<div class="mainScreen__item mainScreen__item_1">точную<br class="hidden-xs-up">стоимость<br class="hidden-xs-up">кухни</div>
+					<div class="mainScreen__item mainScreen__item_2">дизайн-проект<br class="hidden-xs-up">кухни</div>
+					<div class="mainScreen__item mainScreen__item_3">каталог<br class="hidden-xs-up">материалов<br class="hidden-xs-up">и цветов</div>
+					<div class="mainScreen__item mainScreen__item_4">план<br class="hidden-xs-up">расположения<br class="hidden-xs-up">розеток</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>-->
+
+		<div class="container" data-toggle="modal" data-target="#call">
+			<div class="row" style="margin: auto 0; margin-top: 44px; ">
+						<div class="col-12 col-lg-4 col-md-4 col-sm-4 col-xs-12" style="font-size: 28px">Оставьте заявку сейчас<br>и Вы получите</div>
+
+
+						<div style="height: 50px"  class="col-12 col-lg-2 col-md-4 col-sm-4 col-xs-12">
+							<img src="images/tem1.png" alt="иконка 1" style="position: absolute; margin-top: 3px;">
+							<div class="col" style="margin-left: 35px">точную стоимость кухни</div>
+						</div>
+						<div style="height: 50px"  class="col-12 col-lg-2 col-md-4 col-sm-4 col-xs-12">
+							<img src="images/tem2.png" alt="иконка 2" style="position: absolute; margin-top: 3px;">
+							<div class="col" style="margin-left: 35px">дизайн-проект кухни</div>
+						</div>
+						<p class="nnoni col-sm-4  col-md-4 "></p>
+
+						<div style="height: 50px" class="col-12 col-lg-2 col-md-4 col-sm-4 col-xs-12">
+							<img src="images/tem3.png" alt="иконка 3" style="position: absolute; margin-top: 3px;">
+							<div class="col" style="margin-left: 35px">каталог материалов и цветов</div>
+						</div>
+						<div style="height: 50px"  class="col-12 col-lg-2 col-md-4 col-sm-4 col-xs-12">
+							<img src="images/tem4.png" alt="иконка 4" style="position: absolute; margin-top: 3px;">
+							<div class="col" style="margin-left: 35px">план расположения розеток</div>
+						</div>
+			</div>
+		</div>
+
+	</div>
+		<div class="mai container">
+			<div class="row">
+				<div class="characteristics col-12">
+					<h2 class="wow fadeInDown" data-wow-duration="2s">Быстро, чисто, безопасно!</h2>
+					<div class="grid">
+						<div class="item item1 wow fadeInLeft" data-wow-duration="2s">
+							<div class="img-block"><img src="images/item1.png" alt="icon"></div>
+							<div class="desc">
+								<h3>Выгодная цена</h3>
+								<span>Лучшее соотношение цены и качества в Росии!</span>
+							</div>
+						</div>
+						<div class="item item2 wow fadeInUp" data-wow-duration="2s">
+							<div class="img-block"><img src="images/item2.png" alt="icon"></div>
+							<div class="desc">
+								<h3>Профессионализм</h3>
+								<span>Опытная бригада монтажников и современное оборудование</span>
+							</div>
+						</div>
+						<div class="item item3 wow fadeInRight" data-wow-duration="2s">
+							<div class="img-block"><img src="images/item3.png" alt="icon"></div>
+							<div class="desc">
+								<h3>Богатый выбор</h3>
+								<span>Огромное количество разных моделей</span>
+							</div>
+						</div>
+						<div class="item item4 wow fadeInLeft" data-wow-duration="2s">
+							<div class="img-block"><img src="images/item4.png" alt="icon"></div>
+							<div class="desc">
+								<h3>Лучшие материалы</h3>
+								<span>Используем только  качественные материалы</span>
+							</div>
+						</div>
+						<div class="item item5 wow fadeInUp" data-wow-duration="2s">
+							<div class="img-block"><img src="images/item5.png" alt="icon"></div>
+							<div class="desc">
+								<h3>Гарантия</h3>
+								<span>Наши кухни будут служить долго</span>
+							</div>
+						</div>
+						<div class="item item6 wow fadeInRight" data-wow-duration="2s">
+							<div class="img-block"><img src="images/item6.png" alt="icon"></div>
+							<div class="desc">
+								<h3>Заключение договора</h3>
+								<span>Работаем официально, есть все необходимые сертификаты</span>
+							</div>
+						</div>
+						<div class="item item7 wow fadeInLeft" data-wow-duration="2s">
+							<div class="img-block"><img src="images/item7.png" alt="icon"></div>
+							<div class="desc">
+								<h3>Бесплатная консультация</h3>
+								<span>Обсудим с вами любые вопросы и выберем самое лучшее решение</span>
+							</div>
+						</div>
+						<div class="item item8 wow fadeInUp" data-wow-duration="2s">
+							<div class="img-block"><img src="images/item8.png" alt="icon"></div>
+							<div class="desc">
+								<h3>Ценим ваше время</h3>
+								<span>Изготовление максимально быстро</span>
+							</div>
+						</div>
+						<div class="item item9 wow fadeInRight" data-wow-duration="2s">
+							<div class="img-block"><img src="images/item9.png" alt="icon"></div>
+							<div class="desc">
+								<h3>Аккуратный монтаж</h3>
+								<span>После установки выполняем уборку помещения</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="help" class="lol">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-offset-3 col-md-9">
+						<div class="help">
+							<h2 class="help__header">Помощь, которую Вы получаете <br>на бесплатном выезде мастера</h2>
+							<div class="help__list help__list_text">
+								<li>Проконсультирует и произведет замеры кухни</li>
+								<li>Разработает эскиз кухни прямо на месте</li>
+								<li>Составит дизайн-проект в день замера с учетом вашего удобства и безопасности</li>
+								<li>Подготовит план расположения розеток</li>
+								<li>Продумает освещение, чтобы на кухне всегда было светло и уютно</li>
+								<li>Привезет образцы материалов и цветов для вашей кухни</li>
+								<li>Поможет с выбором, покупкой и установкой бытовой техники</li>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class=" resh kinds container-fluid">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="wow fadeInDown" data-wow-duration="2s">функциональные решения для кухни</h2>
+						<div class="grid">
+							<div class="item item1 wow fadeInLeft" data-wow-duration="2s">
+								<img class="img" src="images/k1.jpg" alt="img">
+								<div class="wrap">
+									<h3>Кухня</h3>
+									<span class="item-price">от 777 руб. </span>
+									<div>
+										<span><img src="images/chech1.png" alt="img">Бесплатный cервис</span>
+										<span><img src="images/chech1.png" alt="img">С установкой</span>
+									</div>
+									<button data-toggle="modal" data-target="#zamer">Оставить заявку</button>
+								</div>
+							</div>
+							<div class="item item2 wow fadeInUp" data-wow-duration="2s">
+								<img class="img" src="images/k2.jpg" alt="img">
+								<div class="wrap">
+									<h3>Кухня</h3>
+									<span class="item-price">от 777 руб. </span>
+									<div>
+										<span><img src="images/chech1.png" alt="img">Бесплатный cервис</span>
+										<span><img src="images/chech1.png" alt="img">С установкой</span>
+									</div>
+									<button data-toggle="modal" data-target="#zamer">Оставить заявку</button>
+								</div>
+							</div>
+							<div class="item item3 wow fadeInRight" data-wow-duration="2s">
+								<img class="img" src="images/k3.jpg" alt="img">
+								<div class="wrap">
+									<h3>Кухня</h3>
+									<span class="item-price">от 777 руб. </span>
+									<div>
+										<span><img src="images/chech1.png" alt="img">Бесплатный cервис</span>
+										<span><img src="images/chech1.png" alt="img">С установкой</span>
+									</div>
+									<button data-toggle="modal" data-target="#zamer">Оставить заявку</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="kinds container-fluid" style="padding-top: 0px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="grid">
+							<div class="item item1 wow fadeInLeft" data-wow-duration="2s">
+								<img class="img" src="images/k4.jpg" alt="img">
+								<div class="wrap">
+									<h3>Кухня</h3>
+									<span class="item-price">от 777 руб. </span>
+									<div>
+										<span><img src="images/chech1.png" alt="img">Бесплатный cервис</span>
+										<span><img src="images/chech1.png" alt="img">С установкой</span>
+									</div>
+									<button data-toggle="modal" data-target="#zamer">Оставить заявку</button>
+								</div>
+							</div>
+							<div class="item item2 wow fadeInUp" data-wow-duration="2s">
+								<img class="img" src="images/k5.jpg" alt="img">
+								<div class="wrap">
+									<h3>Кухня</h3>
+									<span class="item-price">от 777 руб. </span>
+									<div>
+										<span><img src="images/chech1.png" alt="img">Бесплатный cервис</span>
+										<span><img src="images/chech1.png" alt="img">С установкой</span>
+									</div>
+									<button data-toggle="modal" data-target="#zamer">Оставить заявку</button>
+								</div>
+							</div>
+							<div class="item item3 wow fadeInRight" data-wow-duration="2s">
+								<img class="img" src="images/k6.jpg" alt="img">
+								<div class="wrap">
+									<h3>Кухня</h3>
+									<span class="item-price">от 777 руб. </span>
+									<div>
+										<span><img src="images/chech1.png" alt="img">Бесплатный cервис</span>
+										<span><img src="images/chech1.png" alt="img">С установкой</span>
+									</div>
+									<button data-toggle="modal" data-target="#zamer">Оставить заявку</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="container">
+			<div class="row">
+				<div class="texnology col-12">
+					<h2 class="wow fadeInUp" data-wow-duration="2s">Технологии натяжных потолков</h2>
+					<div class="grid">
+						<div class="wow fadeInLeft" data-wow-duration="2s">
+							<img src="images/texnology-item1.jpg" alt="img">
+							<h3>Двухуровневые</h3>
+						</div>
+						<div class="wow fadeInUp" data-wow-duration="2s">
+							<img src="images/texnology-item2.jpg" alt="img">
+							<h3>Светопропускающие</h3>
+						</div>
+						<div class="wow fadeInUp" data-wow-duration="2s">
+							<img src="images/texnology-item3.jpg" alt="img">
+							<h3>С фотопечатью</h3>
+						</div>
+						<div class="wow fadeInRight" data-wow-duration="2s">
+							<img src="images/texnology-item4.jpg" alt="img">
+							<h3>Звездное небо</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<div class="zamer container-fluid">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 d-flex justify-content-between align-items-center flex-wrap">
+						<div class="h2-block wow fadeInLeft" data-wow-duration="2s">
+							<h2>Закажите бесплатный<br>замер прямо сейчас!</h2>
+							<span class="first"><img src="images/check.png" alt="icon">Мастер рассчитает стоимость будущей <br>кухни на месте. </span>
+							<span><img src="images/check.png" alt="icon">Акция</span>
+						</div>
+						<div class="form wow fadeInRight" data-wow-duration="2s">
+							<h3>ВЫЗВАТЬ ЗАМЕРЩИКА</h3>
+							<span>БЕСПЛАТНО УЖЕ СЕГОДНЯ!</span>
+							<h4>+ ПОДАРКИ ПО АКЦИИ</h4>
+							<form id="myform" action="" method="post">
+								<input type="hidden" class="type" value="zamer2" name="type">
+								<input type="text" name="tel" placeholder="Ваш телефон" required class="tel">
+								<div>Передавая информацию сайту вы принимаете условия <a href="#" style="color: #ff0000">Политики защиты персональной информации</a></div>
+								<button style="color: white">Оставить заявку</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="potolki-for container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="wow fadeInUp" data-wow-duration="2s">Технологии натяжных потолков</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 grid">
+					<div class="item wow fadeInLeft" data-wow-duration="2s">
+						<img src="images/for-item1.jpg" alt="img">
+						<span>Спальни</span>
+					</div>
+					<div class="item wow fadeInUp" data-wow-duration="2s">
+						<img src="images/for-item2.jpg" alt="img">
+						<span>Гостинной</span>
+					</div>
+					<div class="item wow fadeInRight" data-wow-duration="2s">
+						<img src="images/for-item3.jpg" alt="img">
+						<span>Детской</span>
+					</div>
+					<div class="item wow fadeInLeft" data-wow-duration="2s">
+						<img src="images/for-item4.jpg" alt="img">
+						<span>Кухни</span>
+					</div>
+					<div class="item wow fadeInUp" data-wow-duration="2s">
+						<img src="images/for-item5.jpg" alt="img">
+						<span>Ванной и туалета</span>
+					</div>
+					<div class="item wow fadeInRight" data-wow-duration="2s">
+						<img src="images/for-item6.jpg" alt="img">
+						<span>Офиса</span>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<div class="ask container-fluid">
+			<div class="container">
+				<div class="row">
+					<div class="col-12  wow fadeInUp" data-wow-duration="2s">
+						<h2>Ответы на вопросы</h2>
+						<h3>Можете задать вопросы по телефону <a href="tel:+77777777777">+7 (777) 777 77 77</a><br>или просто оставьте заявку и мы вам перезвоним</h3>
+					</div>
+					<div class="row" style="margin: 0 auto;">
+						<div class="col-12 col-md-6 ask-blocks wow fadeInLeft" data-wow-duration="2s">
+							<div class="item item1">
+								<h4>Вопрос?</h4>
+								<div>Ответ!</div>
+							</div>
+							<div class="item item2">
+								<h4>Вопрос?</h4>
+								<div>Ответ!</div>
+							</div>
+							<div class="item item3">
+								<h4>Вопрос?</h4>
+								<div>Ответ!</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 ask-blocks ask-blocks2 wow fadeInRight" data-wow-duration="2s">
+							<div class="item item4">
+								<h4>Вопрос?</h4>
+								<div>Ответ!</div>
+							</div>
+							<div class="item item5">
+								<h4>Вопрос?</h4>
+								<div>Ответ!</div>
+							</div>
+							<div class="item item6">
+								<h4>Вопрос?</h4>
+								<div>Ответ!</div>
+							</div>
+						</div>
+						<div class="col-12 wow fadeInUp" data-wow-duration="2s"><button data-toggle="modal" data-target="#zamer">ОСТАВИТЬ ЗАЯВКУ</button></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="reviews container">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="wow fadeInUp" data-wow-duration="2s"">Что говорят о нас клиенты</h2>
+					<div class="items">
+						<div class="item item1 wow fadeInLeft" data-wow-duration="2s">
+							<img src="images/avatar1.jpg" alt="img">
+							<h5>Валентина Николаева</h5>
+							<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea sequi, magnam ipsa deleniti illo totam eum tempore, veniam suscipit! Eligendi?</span>
+						</div>
+						<div class="item item2 wow fadeInUp" data-wow-duration="2s">
+							<img src="images/avatar2.jpg" alt="img">
+							<h5>Сергей Артемьев</h5>
+							<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam harum eligendi nesciunt dolor, cumque minima est ex eum eius, repudiandae.</span>
+						</div>
+						<div class="item item3 wow fadeInRight" data-wow-duration="2s">
+							<img src="images/avatar3.jpg" alt="img">
+							<h5>Андрей Чудинов</h5>
+							<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit itaque eos perspiciatis soluta, fugit possimus repellendus rem, doloribus delectus rerum!</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="call wow fadeInUp" data-wow-duration="2s">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h2>Вызовите замерщика в любой день,<br>мы работаем без выходных!</h2>
+						<h3>Произведем замер, поможем определиться с фактурой<br class="d-none d-md-block"> и цветом, рассчитаем точную стоимость.</h3>
+						<button data-toggle="modal" data-target="#zamer">ОСТАВИТЬ ЗАЯВКУ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div id="map">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="places">
+							<img class="places-logo" src="images/logo.png" alt="logo">
+							<span>г. Москва, Красная площадь, с лева</span>
+							<div>
+						    	<img src="images/phone-icon.png" alt="img">
+						    	<a href="tel:+77777777777">+7 (777) 777 77 77</a>
+					    	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>-->
+	</main>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="copy">Кухни 2018 Template</div>
+					<div class="desc">Монтаж и обслуживание кухонь<br> в Москве и Московской области</div>
+					<div class="footer-contacts">
+						<a class="link-tel" href="tel:+77777777777"><img src="images/tel.png" alt="icon">+7 (777) 777 77 77</a>
+						<a class="link-mail" href="mailto:кухни@gmail.com"><img src="images/mail.png" alt="icon">кухни@gmail.com</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<a class="up" href="#"><img src="images/chevron-up.png" alt="icon"></a>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/script.js"></script>
+  </body>
+</html>
