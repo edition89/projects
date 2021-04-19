@@ -14,3 +14,9 @@ Python/tg_test.py
 Python/vk.py
 Python/vk_kodi.py
 Python/vk_money.py
+Python/kveli/token.txt
+Python/parser_txt2csv/*.csv
+Python/parser_txt2csv/*.txt
+Python/parser_txt2txt/*.txt
+Python/parser_txt2txt_one_document/*.txt
+Python/parser_txt2txt_one_document/*.csv
