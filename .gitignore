@@ -20,3 +20,15 @@ Python/parser_txt2csv/*.txt
 Python/parser_txt2txt/*.txt
 Python/parser_txt2txt_one_document/*.txt
 Python/parser_txt2txt_one_document/*.csv
+Arduino/PCdisplay_v1.6.ino
+Arduino/ESP8266-RGB/
+Arduino/max72_digyspark/
+Arduino/monopoly_backup/
+Arduino/Monopoly_RFID/
+Arduino/progromator/
+Arduino/PCdisplay_v1.6
+Arduino/MY_arduino
+Arduino/midi
+Arduino/gyverLight_v1.4
+Arduino/digylamp
+Arduino/colorMusic_v2.8
